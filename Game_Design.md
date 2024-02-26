@@ -35,7 +35,7 @@ Horror
 
 ### Platform, technology, and scope
 
-The game will be made using the unity engine with c# as it's programming language, it is a PC Game, with the additional platform being an arcade like machine. The development team consists of 2 people with the intent of having the game finished by x.
+The game will be made using the Unity engine with c# as its programming language, it is a PC Game, with the additional platform being an arcade-like machine. The development team consists of 2 people intending to have the game finished by x.
 
 ---
 
