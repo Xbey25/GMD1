@@ -48,20 +48,11 @@ The game will be made using the Unity engine with c# as its programming language
 ## Product Design
 
 ### Core Loops:
-[Outline the core gameplay loops]
 
-### Objective and Progression:
-[Explain the objectives and progression system]
-
-### Game Systems and Interactivity:
-[Describe the various game systems and interactive elements]
-
----
-
-## Detailed and Game Systems Design
-
-### Core Loops:
-[Explain the core gameplay loops in detail]
+1. Exploration: Players navigate through the maze-like corridors, searching for keys, objects, and clues.
+2. Puzzle-Solving: Players encounter various puzzles and challenges that obstruct their progress.
+3. Narrative Discovery: Players uncover notes, journals, and other storytelling elements scattered throughout the maze, gradually piecing together the mystery of their identity and the events leading up to their situation.
+4. Escape and Evasion: As players progress through the maze, they must evade a mysterious and increasingly active entity that stalks them.
 
 ### Objective and Progression:
 
@@ -69,6 +60,12 @@ The main objective of the game is to escape the maze. The maze itself consists o
 
 As the maze reaches its conclusion, the creature will become more active and escaping will become complex.
 
+
 ### Game Systems and Interactivity:
-[Detail the intricacies of game systems and interactivity]
+
+1. Inventory: Players can collect and manage keys, objects, and other items essential for progression.
+2. Puzzle Mechanics: Various types of puzzles, mostly involving retrieving an essential item to progress.
+3. Stealth and Evasion: Players must utilize stealth mechanics to evade detection by the pursuing creature, hiding in shadows, and avoiding line of sight.
+4. Narrative Interaction: Interacting with notes, documents, and the environment.
+
 
