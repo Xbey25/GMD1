@@ -1,21 +1,21 @@
 # Game Design Document
 
 ## Working Title:
-[Enter Working Title Here]
+Dead End.
 
 ## Concept Statement:
-[Provide a brief overview of the game's concept]
+"Dead End" is a maze game where players navigate through complex, intricate environments filled with traps, puzzles, and a particular creature. The goal is to escape the maze while collecting keys and clues about the mysterious backstory behind its creation. Players must strategize, solve puzzles, and avoid the creature to reach the exit, with each level presenting increasingly challenging obstacles.
 
 ## Genre:
 Horror
 
 ## Target Audience:
-[Describe the intended audience for the game]
+Teenagers and young adults driven by mystery, scary moments, and puzzle-solving experiences.
 
 ## Unique Selling Points:
-- [Point 1]
-- [Point 2]
-- [Point 3]
+- Fun and engaging puzzles
+- Creepy and suspenseful environment
+- The creature
 
 ---
 
@@ -28,7 +28,12 @@ Horror
 [Describe the visual and audio style of the game]
 
 ### Game World Fiction:
-[Provide background information on the game world and its fiction]
+
+In "Dead End" players awaken in a state of dizziness, finding themselves in an unfamiliar environment. They are trapped in a dark, empty hallway with no memory of who they are or how they arrived there. The only clue to their predicament is a ripped note lying nearby, bearing the message: "What have I done?"
+
+Driven by a sense of urgency, panic, and fear, the player sets out to explore their surroundings. As they progress through the maze-like corridors, they encounter obstacles, traps, and cryptic messages hinting at a sinister purpose behind their predicament.
+
+Throughout their journey, the player discovers remnants of an enigmatic experiment gone wrong, revealing pieces of a larger narrative involving secret research, ethical predicaments, and the results of meddling with forces beyond human understanding.
 
 ### Monetization:
 [Detail the monetization strategy for the game]
@@ -58,7 +63,10 @@ The game will be made using the Unity engine with c# as its programming language
 [Explain the core gameplay loops in detail]
 
 ### Objective and Progression:
-[Provide a deeper insight into the objectives and progression mechanics]
+
+The main objective of the game is to escape the maze. The maze itself consists of various levels where the player must find keys and objects that allow for progression between those areas. Additionally, they will have the chance to collect additional rewards and notes, which will provide more details and information as to who they are, what they are doing here, and what is chasing them.
+
+As the maze reaches its conclusion, the creature will become more active and escaping will become complex.
 
 ### Game Systems and Interactivity:
 [Detail the intricacies of game systems and interactivity]
