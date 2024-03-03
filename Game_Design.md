@@ -22,10 +22,11 @@ Teenagers and young adults driven by mystery, scary moments, and puzzle-solving 
 ## High-Level Concept/Design
 
 ### Player Experience and Game POV:
-[Explain the intended player experience and the game's point of view]
+
+The player experience in "Dead End" is of immersive suspense and intense exploration. The game's point of view is from a first-person perspective, placing players directly into the  environment of the maze and allowing them to immerse themselves in the mystery and challenges it has.
 
 ### Visual and Audio Style:
-[Describe the visual and audio style of the game]
+Dark, atmospheric, and claustrophobic, with dimly lit corridors, ominous shadows, and unsettling environmental details. The maze itself is designed to evoke feelings of isolation and confusion onto the player as well as eary sound queues, that make the player aware of their movements (and perhaps of another).
 
 ### Game World Fiction:
 
