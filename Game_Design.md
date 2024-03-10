@@ -37,7 +37,7 @@ Driven by a sense of urgency, panic, and fear, the player sets out to explore th
 Throughout their journey, the player discovers remnants of an enigmatic experiment gone wrong, revealing pieces of a larger narrative involving secret research, ethical predicaments, and the results of meddling with forces beyond human understanding.
 
 ### Monetization:
-[Detail the monetization strategy for the game]
+The game will be pay to play and the price is determined by the final product
 
 ### Platform, technology, and scope
 
