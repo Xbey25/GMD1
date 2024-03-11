@@ -29,7 +29,13 @@ Finally, I added the victory text once all 6 cubes were picked up and built my g
 
 The interesting part/takeaway was the fact that all objects are there at all times, we just make them disappear when we don't need them but that is only a visual change, the cube is still there, it's just invisible, and so is the winning screen.
 
-Overall, I am excited for the next lesson and getting some more experience in the programming side of Unity.
+Labyrinth's extension:
+
+In addition to the tutorial, I decided to expand on the playability aspect of it. The first thing that I decided to do was implement a labyrinth that the ball would have to navigate in order to collect to the pick-ups. The labyrinth would become progressively harder to get through as we try to collect all of them.
+
+To make it more immersive I played a bit with the camera view so that it's zoomed in more on the ball and the field of view doesn't reveal a lot of the labyrinth, keeping us guessing. As I was testing it, I imagined being a player that would open this game and it would be too easy and frankly, boring. So to add a bit of a challenge, I thought of adding a losing condition: when the ball would collide with the labyrinth's walls, the ball would stop and the wall that was hit would turn red, the collision leading to an instadeath. It was a bit tricky to figure it out before the physics lesson but it became a lot more fun, increased the playtime, and helped me win a lot of bets with my friends who were convinced could get through it on their first run: spoiler alert, they didn't.
+
+Overall, we are excited for the next lesson and getting some more experience in the programming side of Unity.
 
 For references, see
 
