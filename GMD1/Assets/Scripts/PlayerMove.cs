@@ -35,6 +35,6 @@ public class PlayerMove : MonoBehaviour
 
     void MovePlayer()
     {
-        player.Move(player.transform.forward * playerSpeed * Time.deltaTime);
+        player.Move(movementVector * Time.deltaTime);
     }
 }
