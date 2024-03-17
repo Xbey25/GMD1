@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     {
         //will load second scene, scene index 0 is reserved to menu scene
         SceneManager.LoadScene(1);
+        
     }
 
     public void OnQuitButton(){
