@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         GetInput();
-        MovePlayer();
+       // MovePlayer();
     }
 
     void GetInput()
@@ -30,11 +30,11 @@ public class PlayerMove : MonoBehaviour
         inputVector.Normalize();
         inputVector = transform.TransformDirection(inputVector);
 
-        movementVector.x = (inputVector * playerSpeed) + (Vector3.up * gravity;)
-    }
+        //movementVector.x = (inputVector * playerSpeed) + (Vector3.up * gravity);
 
     void MovePlayer()
     {
         player.Move(movementVector * Time.deltaTime);
     }
+}
 }
