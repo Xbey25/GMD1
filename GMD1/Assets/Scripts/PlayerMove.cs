@@ -1,40 +1,157 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    // Movement parameters
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 100f;
+    public float swingAmount = 0.1f;
+    public float swingSpeed = 5f;
 
-    public float playerSpeed = 20f;
-    private CharacterController player;
-    private Vector3 movementVector;
-    private float gravity = -10f;
-    private Vector3 inputVector;
+    // State variables
+    private IPlayerState currentState;
+    public IdleState IdleState { get; private set; }
+    public MovingState MovingState { get; private set; }
+    public RotatingState RotatingState { get; private set; }
 
-    // Start is called before the first frame update
+    // Character controller and camera
+    private CharacterController characterController;
+    private Transform cameraTransform;
+
     void Start()
     {
-        player = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
+        cameraTransform = transform.GetChild(0); // Assuming camera is the first child
+
+        // Initialize states
+        IdleState = new IdleState(this);
+        MovingState = new MovingState(this);
+        RotatingState = new RotatingState(this);
+
+        // Set initial state
+        currentState = IdleState;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        GetInput();
-       // MovePlayer();
+        currentState.UpdateState();
     }
 
-    void GetInput()
+    // State transition methods
+    public void TransitionToState(IPlayerState nextState)
     {
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        inputVector.Normalize();
-        inputVector = transform.TransformDirection(inputVector);
+        currentState = nextState;
+    }
 
-        //movementVector.x = (inputVector * playerSpeed) + (Vector3.up * gravity);
-
-    void MovePlayer()
+    // Getters
+    public CharacterController GetCharacterController()
     {
-        player.Move(movementVector * Time.deltaTime);
+        return characterController;
+    }
+
+    public Transform GetCameraTransform()
+    {
+        return cameraTransform;
+    }
+
+    // Movement methods
+    public void Move(float horizontal, float vertical)
+    {
+        Vector3 moveDirection = transform.TransformDirection(new Vector3(horizontal, 0f, vertical));
+        moveDirection *= moveSpeed;
+
+        characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    public void Rotate(float mouseX)
+    {
+        transform.Rotate(Vector3.up * mouseX * rotationSpeed * Time.deltaTime);
+    }
+
+    public void ApplySwing(float swing)
+    {
+        Vector3 swingOffset = new Vector3(0f, 0f, swing * swingAmount);
+        cameraTransform.localPosition = swingOffset;
     }
 }
+
+// Interface for player states
+public interface IPlayerState
+{
+    void UpdateState();
+}
+
+// Idle state
+public class IdleState : IPlayerState
+{
+    private PlayerController playerController;
+
+    public IdleState(PlayerController controller)
+    {
+        playerController = controller;
+    }
+
+    public void UpdateState()
+    {
+        // Handle input to transition to other states
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            playerController.TransitionToState(playerController.MovingState);
+        }
+        else if (Input.GetAxis("Mouse X") != 0)
+        {
+            playerController.TransitionToState(playerController.RotatingState);
+        }
+    }
+}
+
+// Moving state
+public class MovingState : IPlayerState
+{
+    private PlayerController playerController;
+
+    public MovingState(PlayerController controller)
+    {
+        playerController = controller;
+    }
+
+    public void UpdateState()
+    {
+        // Handle input for movement
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        playerController.Move(horizontal, vertical);
+
+        // Transition to idle state if no movement input
+        if (horizontal == 0 && vertical == 0)
+        {
+            playerController.TransitionToState(playerController.IdleState);
+        }
+    }
+}
+
+// Rotating state
+public class RotatingState : IPlayerState
+{
+    private PlayerController playerController;
+
+    public RotatingState(PlayerController controller)
+    {
+        playerController = controller;
+    }
+
+    public void UpdateState()
+    {
+        // Handle input for rotation
+        float mouseX = Input.GetAxis("Mouse X");
+
+        playerController.Rotate(mouseX);
+
+        // Transition to idle state if no rotation input
+        if (mouseX == 0)
+        {
+            playerController.TransitionToState(playerController.IdleState);
+        }
+    }
 }
