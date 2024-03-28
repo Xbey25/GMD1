@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1060.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -596,9 +596,9 @@ MonoBehaviour:
       size: {x: 0, y: 0}
       sizeOverriden: 0
     - dockPosition: 0
-      containerId: Floating
-      floating: 1
-      collapsed: 0
+      containerId: overlay-toolbar__right
+      floating: 0
+      collapsed: 1
       displayed: 1
       snapOffset: {x: 172.80002, y: 205.6}
       snapOffsetDelta: {x: 0, y: 0}
@@ -619,9 +619,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.3000426, y: 7.4780383, z: -7.301552}
+    m_Target: {x: 150.88588, y: 1.7019563, z: -128.00212}
     speed: 2
-    m_Value: {x: 4.3000426, y: 7.4780383, z: -7.301552}
+    m_Value: {x: 150.88588, y: 1.7019563, z: -128.00212}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -667,9 +667,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.13595915, y: -0.32995534, z: 0.048190556, w: 0.934045}
+    m_Target: {x: -0.17394692, y: 0.27526283, z: -0.050137084, w: -0.9454996}
     speed: 2
-    m_Value: {x: 0.13581541, y: -0.3296065, z: 0.04813961, w: 0.93305755}
+    m_Value: {x: -0.17366879, y: 0.27605098, z: -0.050282713, w: -0.94398457}
   m_Size:
     m_Target: 1.2247449
     speed: 2
@@ -735,9 +735,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 32fbffff4a590000
+      m_SelectedIDs: aabaffff
+      m_LastClickedID: -17750
+      m_ExpandedIDs: 32c6ffff50c7ffffb2c7ffff9ee8ffffe0f4ffff36f5ffff7cf5ffffcaf5ffff32fbffff4a590000245f0000587f000088830000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -904,7 +904,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -912,16 +912,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\unity\Proj\GMD1\GMD1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ae590000
-    m_LastClickedID: 22958
-    m_ExpandedIDs: 00000000985900009a5900009c59000000ca9a3b
+    m_SelectedIDs: 8a7e0000
+    m_LastClickedID: 32394
+    m_ExpandedIDs: 000000009a5900009c590000508e0000648e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
