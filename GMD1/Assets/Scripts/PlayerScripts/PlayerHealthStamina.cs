@@ -15,24 +15,39 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         currentStamina = maxStamina;
 
-        UpdateUI();
+       
     }
 
     public void TakeDamage(int damage)
     {
+        // Deduct damage from health
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateUI();
 
+        // Update UI for health
+        UpdateHealthUI();
+
+        // Check if player is alive
         if (currentHealth <= 0)
         {
             // Handle player death
+            Die();
         }
     }
 
-    public void UpdateUI()
+    public void UpdateHealthUI()
     {
         healthSlider.value = currentHealth;
+    }
+
+    public void UpdateStaminaUI()
+    {
         staminaSlider.value = currentStamina;
+    }
+
+    void Die()
+    {
+        //TODO: create death screen
+        Debug.Log("Player died!");
     }
 }
