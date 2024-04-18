@@ -1,32 +1,33 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class NextbotPathfinding : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
+    public Transform[] waypoints; // Array of waypoints for the enemy to roam between
     private NavMeshAgent agent;
-    private Transform player;
-
-    private void Start()
+    private int currentWaypointIndex = 0;
+    
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        // Start following the player
-        SetDestinationToPlayer();
-    }
-
-    private void Update()
-    {
-        // Keep following the player
-        SetDestinationToPlayer();
-    }
-
-    private void SetDestinationToPlayer()
-    {
-        if (player != null)
+        if (waypoints.Length > 0)
         {
-            agent.SetDestination(player.position);
+            SetDestinationToWaypoint();
         }
+    }
+
+    void Update()
+    {
+        // Check if the agent has reached the current waypoint
+        if (agent.remainingDistance < 0.1f && !agent.pathPending)
+        {
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            SetDestinationToWaypoint();
+        }
+    }
+
+    void SetDestinationToWaypoint()
+    {
+        agent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 }

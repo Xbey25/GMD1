@@ -1,54 +1,50 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public int damage = 25;
-    public float attackRange = 2f;
-    public float attackCooldown = 2f;
+    public Transform player; // Reference to the player GameObject
+    public float attackDistance = 2f; // Distance at which the enemy attacks the player
+    public AudioClip attackSound; // Sound to play when the attack commences
+    public GameObject[] respawnPoints; // Array of respawn points for the enemy
+    private bool isAttacking = false;
+    private NavMeshAgent agent;
 
-    private Transform player;
-    private AudioSource audioSource;
-    private float lastAttackTime = 0f;
-
-    // Assign the AudioClip for attack sound in the Unity Editor
-    public AudioClip attackSound;
-
-    private void Start()
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        audioSource = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (player != null && Time.time - lastAttackTime >= attackCooldown)
+        // Check if the enemy is not currently attacking and the player is within attack distance
+        if (!isAttacking && Vector3.Distance(transform.position, player.position) <= attackDistance)
         {
-            float distance = Vector3.Distance(transform.position, player.position);
-
-            if (distance <= attackRange)
-            {
-                Attack();
-            }
+            // Start the attack
+            StartAttack();
         }
     }
 
-    private void Attack()
+    void StartAttack()
     {
-        // Check if an attack sound is assigned
-        if (attackSound != null && audioSource != null)
-        {
-            // Play the attack sound
-            audioSource.PlayOneShot(attackSound);
-        }
+        isAttacking = true;
+        // Play attack sound
+        AudioSource.PlayClipAtPoint(attackSound, transform.position);
 
-        // Deduct health from the player
-        PlayerStats playerStats = player.GetComponent<PlayerStats>();
-        if (playerStats != null)
-        {
-            playerStats.TakeDamage(damage);
-        }
+        // Deduct 35 HP from the player
+        player.GetComponent<PlayerStats>().AdjustHealth(-35);
 
-        // Reset attack cooldown
-        lastAttackTime = Time.time;
+        // Respawn the enemy at another spawning point
+        RespawnEnemy();
+    }
+
+    void RespawnEnemy()
+    {
+        // Select a random respawn point
+        Transform respawnPoint = respawnPoints[Random.Range(0, respawnPoints.Length)].transform;
+        // Move the enemy to the respawn point
+        transform.position = respawnPoint.position;
+        // Reset attacking state
+        isAttacking = false;
     }
 }
