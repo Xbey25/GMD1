@@ -7,47 +7,44 @@ public class PlayerStats : MonoBehaviour
     public int currentHealth;
     public int maxStamina = 100;
     public int currentStamina;
+
     public Slider healthSlider;
     public Slider staminaSlider;
 
-    private void Start()
+    public HealthBarScript healthBar;
+
+    public StaminaBarScript staminaBar;
+
+    void Start()
     {
         currentHealth = maxHealth;
         currentStamina = maxStamina;
-
-       
+        healthBar.setMaxHealth(maxHealth);
+        staminaBar.setMaxStamina(maxStamina);
     }
 
-    public void TakeDamage(int damage)
+    public void AdjustHealth(int amount)
     {
-        // Deduct damage from health
-        currentHealth -= damage;
+        currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        // Update UI for health
-        UpdateHealthUI();
-
-        // Check if player is alive
         if (currentHealth <= 0)
         {
-            // Handle player death
             Die();
         }
     }
 
-    public void UpdateHealthUI()
+    public void AdjustStamina(int amount)
     {
-        healthSlider.value = currentHealth;
+        currentStamina += amount;
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
     }
 
-    public void UpdateStaminaUI()
-    {
-        staminaSlider.value = currentStamina;
-    }
 
     void Die()
     {
-        //TODO: create death screen
-        Debug.Log("Player died!");
+        // Maybe set death screen or print message
+        Debug.Log("Player died.");
     }
 }

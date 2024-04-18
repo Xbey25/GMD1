@@ -32,7 +32,7 @@ public class EnemyAttack : MonoBehaviour
         AudioSource.PlayClipAtPoint(attackSound, transform.position);
 
         // Deduct 35 HP from the player
-        player.GetComponent<PlayerStats>().TakeDamage(35);
+        player.GetComponent<PlayerStats>().AdjustHealth(-35);
 
         // Respawn the enemy at another spawning point
         RespawnEnemy();
