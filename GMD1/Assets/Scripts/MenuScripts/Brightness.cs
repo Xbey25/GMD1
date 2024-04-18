@@ -13,6 +13,7 @@ public class Brightness : MonoBehaviour
     {
         brightness.TryGetSettings(out exposure);
         AdjustBrightness(BrightnessSlider.value);
+        DontDestroyOnLoad(brightness);
     }
 
     public void AdjustBrightness(float value)
@@ -24,6 +25,8 @@ public class Brightness : MonoBehaviour
         {
             exposure.keyValue.value = .05f;
         }
+
+        PlayerPrefs.SetFloat("BrightnessSettings", value);
     }
 
 }
