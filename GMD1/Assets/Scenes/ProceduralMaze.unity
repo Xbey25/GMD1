@@ -13434,9 +13434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   maxStamina: 100
-  currentStamina: 0
+  currentStamina: 100
   healthSlider: {fileID: 1667214383}
   staminaSlider: {fileID: 1831797400}
   healthBar: {fileID: 1667214384}
