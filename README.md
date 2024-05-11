@@ -42,8 +42,31 @@ For references, see
 ### Game Design document
 ---
 
+
 ## Milestones
 
 `
 [x] Roll-a-ball `
-[] Game design document
+[x] Game design document
+[] Development Blogs
+[] V1.0 (Playable Arcade Version)
+
+## Development Blog 1
+
+This is the first development update of the dead cells project. 
+
+For starters, the initial stages of the project are complete, they involved creating a solid foundation for the project to be able to receive updates, track tasks and issues, as well as establishing realistic goals.
+
+Firstly, the project was initialized using Unity Cloud Control in order to maintain versioning and roll back in case of any unforseen issues. However, it was determined that this option would require us to start a Unity organization which involved more work than just using git. Therefore, we settled on using GitHub Desktop to keep track of the project files as well as using it for commits and branches as it is quite user-friendly and very easy to set up in a new machine.
+
+Once the project was initialized, one of the first tasks was to ideate prefabs that would come in hand very early, one of them being the player. Hence, we created a player prefab by creating movement and camera scripts on which we also used a state machine pattern (movement script) to demonstrate the different kinds of movement the player could make. Furthermore, we also created the structure of the maze which consists of several empty object groups which contain the ground, the ceilling, the inside walls, and the outside walls. 
+
+To create the maze structure we settled on using an image of an actual maze and building on top of it to have some sort of perspective on the actual structure. This resulted in several hallways which provide that feeling of being trapped in a real maze, which was of couse what we were aiming for. 
+
+Another important task during these early stages was to create a start menu. The background image for this menu was created through AI but resulted in a very weird image. Therefore, it was modified in Adobe in order to match the theme and vibe of the game. 
+
+The image was of course a small part of the menu development, the interesting part of it was how Unity handles it. The menu is a scene like a playable one but in which there is no player but clickable buttons and text. Once you click the start button, it selects the maze scene we created earlier and you start playing with the prefab player.
+
+## Development Blog 2
+
+
