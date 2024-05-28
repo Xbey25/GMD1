@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ProceduralMaze.unity
     guid: d16d45d331eba904b9d0b2017c3be3f6
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 9a625b325bf8ea54a8db5d4425593cb2
   - enabled: 0
     path: Assets/Scenes/TestMaze.unity
     guid: b137fe94db74c3d4fade44733fd71773
