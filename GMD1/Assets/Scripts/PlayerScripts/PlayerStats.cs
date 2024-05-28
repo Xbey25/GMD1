@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerStats : MonoBehaviour
 {
@@ -42,9 +44,12 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-    void Die()
-    {
-        // Maybe set death screen or print message
-        Debug.Log("Player died.");
+     void Die()
+     {
+         // Maybe set death screen or print message
+        
+         SceneManager.LoadScene("GameOver");
+         Debug.Log("Player died.");
     }
 }
+
