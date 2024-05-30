@@ -11506,7 +11506,7 @@ MonoBehaviour:
   player: {fileID: 2104371648}
   destinationAmount: 4
   rayCastOffset: {x: 0, y: 0, z: 0}
-  deathScene: 
+  deathScene: GameOver
 --- !u!95 &1491244980
 Animator:
   serializedVersion: 5
