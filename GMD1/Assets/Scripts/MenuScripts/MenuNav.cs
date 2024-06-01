@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuNav : MonoBehaviour
 {
-    public Button[] menuButtons; // Assign your buttons in the inspector
+    public Button[] menuButtons; 
     private int selectedIndex = 0;
 
     private PlayerControls controls;
