@@ -46,9 +46,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""LookLeft"",
                     ""type"": ""Button"",
-                    ""id"": ""70c8a638-17cb-436b-8172-996574e87719"",
+                    ""id"": ""c365330e-7409-4741-abfb-da39ec574b93"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LookRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed507aae-eba1-431f-b259-3330d537b511"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -70,7 +79,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""47acd591-2fa0-41c1-8270-b653cf92b6a6"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ArcadeMachine"",
@@ -80,12 +89,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fbccf402-2539-443e-8427-a1623cfdcdc7"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""id"": ""af5f35de-302f-44db-ae86-2285dfc0dcca"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Look"",
+                    ""action"": ""LookLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f33f858f-bc42-4bf1-9514-02599cb3055b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -266,7 +286,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_LookLeft = m_Player.FindAction("LookLeft", throwIfNotFound: true);
+        m_Player_LookRight = m_Player.FindAction("LookRight", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
@@ -335,14 +356,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_LookLeft;
+    private readonly InputAction m_Player_LookRight;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @LookLeft => m_Wrapper.m_Player_LookLeft;
+        public InputAction @LookRight => m_Wrapper.m_Player_LookRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -358,9 +381,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            @LookLeft.started += instance.OnLookLeft;
+            @LookLeft.performed += instance.OnLookLeft;
+            @LookLeft.canceled += instance.OnLookLeft;
+            @LookRight.started += instance.OnLookRight;
+            @LookRight.performed += instance.OnLookRight;
+            @LookRight.canceled += instance.OnLookRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -371,9 +397,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @LookLeft.started -= instance.OnLookLeft;
+            @LookLeft.performed -= instance.OnLookLeft;
+            @LookLeft.canceled -= instance.OnLookLeft;
+            @LookRight.started -= instance.OnLookRight;
+            @LookRight.performed -= instance.OnLookRight;
+            @LookRight.canceled -= instance.OnLookRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -466,7 +495,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnPickUp(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnLookLeft(InputAction.CallbackContext context);
+        void OnLookRight(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

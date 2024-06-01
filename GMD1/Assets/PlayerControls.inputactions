@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Look",
+                    "name": "LookLeft",
                     "type": "Button",
-                    "id": "70c8a638-17cb-436b-8172-996574e87719",
+                    "id": "c365330e-7409-4741-abfb-da39ec574b93",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookRight",
+                    "type": "Button",
+                    "id": "ed507aae-eba1-431f-b259-3330d537b511",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -48,7 +57,7 @@
                 {
                     "name": "",
                     "id": "47acd591-2fa0-41c1-8270-b653cf92b6a6",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "ArcadeMachine",
@@ -58,12 +67,23 @@
                 },
                 {
                     "name": "",
-                    "id": "fbccf402-2539-443e-8427-a1623cfdcdc7",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "af5f35de-302f-44db-ae86-2285dfc0dcca",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look",
+                    "action": "LookLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f33f858f-bc42-4bf1-9514-02599cb3055b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
