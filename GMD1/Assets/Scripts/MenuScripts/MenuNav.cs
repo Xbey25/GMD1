@@ -2,13 +2,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
 public class MenuNav : MonoBehaviour
 {
-    public Button[] menuButtons; 
+    public Button[] menuButtons;
     private int selectedIndex = 0;
 
     private PlayerControls controls;
+    private const float deadZoneThreshold = 0.5f; // Higher threshold for the dead zone
+    private const float snapCooldownDuration = 0.2f; // Duration of the snap cooldown in seconds
+    private float lastSnapTime = 0f; // Time when the last snap occurred
 
     private void Awake()
     {
@@ -32,13 +34,19 @@ public class MenuNav : MonoBehaviour
     private void OnNavigate(InputAction.CallbackContext context)
     {
         Vector2 navigation = context.ReadValue<Vector2>();
-        if (navigation.y > 0)
+        float currentTime = Time.time; // Get the current time
+
+        if (navigation.magnitude > deadZoneThreshold && currentTime - lastSnapTime >= snapCooldownDuration)
         {
-            MoveUp();
-        }
-        else if (navigation.y < 0)
-        {
-            MoveDown();
+            if (navigation.y > 0)
+            {
+                MoveUp();
+            }
+            else if (navigation.y < 0)
+            {
+                MoveDown();
+            }
+            lastSnapTime = currentTime; // Update the last snap time
         }
     }
 

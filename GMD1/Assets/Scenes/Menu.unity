@@ -1067,6 +1067,7 @@ GameObject:
   - component: {fileID: 918138033}
   - component: {fileID: 918138038}
   - component: {fileID: 918138039}
+  - component: {fileID: 918138040}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1088,7 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 896243334}
   OptionsMenu: {fileID: 445536759}
-  menuNav: {fileID: 0}
+  menuNav: {fileID: 918138038}
 --- !u!114 &918138034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1205,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 1915423797}
   OptionsMenu: {fileID: 445536759}
-  menuNav: {fileID: 0}
+  menuNav: {fileID: 918138038}
+--- !u!114 &918138040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918138032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd35120e478e5cf43a66524581f8e48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brightnessSlider: {fileID: 1803122551}
+  backButton: {fileID: 991683854}
 --- !u!1 &991683852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,13 +1303,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 918138032}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 918138039}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: OnBackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

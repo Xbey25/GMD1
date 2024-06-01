@@ -136,28 +136,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "7d7eaaea-3230-4099-afac-f1fbf1424a24",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "fa49b710-9224-411b-acb1-ed97716b7d7b",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Keypad",
                     "id": "f289bd30-c2c4-405f-afa2-5620771725c9",
                     "path": "2DVector",
@@ -181,30 +159,8 @@
                 },
                 {
                     "name": "down",
-                    "id": "ac139251-95b4-4a95-99c0-7a9198aee088",
+                    "id": "ed318f5b-aade-4ecb-a7b4-edf76765ddc1",
                     "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0de17901-5bba-4459-83fd-f772584eed19",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "3c5b00bd-bacc-42de-81fc-ace6da223f7f",
-                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
