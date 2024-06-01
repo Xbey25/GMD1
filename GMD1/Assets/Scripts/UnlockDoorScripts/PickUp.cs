@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
 
 public class PickUp : MonoBehaviour
 {
@@ -15,58 +15,69 @@ public class PickUp : MonoBehaviour
     public GameObject greenKey;
     public GameObject yellowKey;
 
+    private PlayerControls inputActions;
 
-private void Start() {
-    redKeyUI.enabled = false;
-    yellowKeyUI.enabled = false;
-    greenKeyUI.enabled = false;
+    private void Awake()
+    {
+        inputActions = new PlayerControls();
+    }
 
-}
-    public void Update(){
-        
-    if (Input.GetMouseButtonDown(0)) 
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+        inputActions.Player.PickUp.performed += OnInteract;
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.PickUp.performed -= OnInteract;
+        inputActions.Player.Disable();
+    }
+
+    private void Start()
+    {
+        redKeyUI.enabled = false;
+        yellowKeyUI.enabled = false;
+        greenKeyUI.enabled = false;
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out hit))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
+            GameObject hitObject = hit.collider.gameObject;
 
-            if (Physics.Raycast(ray, out hit))
+            if (hitObject.CompareTag("Pickable"))
             {
-                GameObject hitObject = hit.collider.gameObject;
-                
-                if (hitObject.CompareTag("Pickable"))
-                {
-                    PickUpObject(hitObject);
-                }
-        }
-        
+                PickUpObject(hitObject);
+            }
         }
     }
 
     void PickUpObject(GameObject obj)
     {
-        if(obj==redKey)
+        if (obj == redKey)
         {
             _keyInventory.hasRedKey = true;
             redKeyUI.enabled = true;
             redKey.SetActive(false);
         }
 
-        if(obj==greenKey)
+        if (obj == greenKey)
         {
             _keyInventory.hasGreenKey = true;
             greenKeyUI.enabled = true;
             greenKey.SetActive(false);
-            
         }
 
-        if(obj==yellowKey)
+        if (obj == yellowKey)
         {
             _keyInventory.hasYellowKey = true;
             yellowKeyUI.enabled = true;
             yellowKey.SetActive(false);
         }
-       
-        
-        
     }
 }
