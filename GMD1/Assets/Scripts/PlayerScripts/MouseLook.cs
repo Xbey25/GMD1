@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
@@ -13,9 +14,28 @@ public class MouseLook : MonoBehaviour
     float cameraVerticalRotation = 0f;
     bool lockedCursor = true;
 
+    private PlayerControls inputActions;
+    private Vector2 lookInput;
+
+    void Awake()
+    {
+        inputActions = new PlayerControls();
+        inputActions.Player.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
+        inputActions.Player.Look.canceled += ctx => lookInput = Vector2.zero;
+    }
+
+    void OnEnable()
+    {
+        inputActions.Player.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputActions.Player.Disable();
+    }
+
     void Start()
     {
-        // Lock and Hide the Cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         defaultPosY = transform.localPosition.y;
@@ -23,23 +43,18 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        // Collect Mouse Input
-        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float inputX = lookInput.x * mouseSensitivity;
+        float inputY = lookInput.y * mouseSensitivity;
 
-        // Rotate the Camera around its local X axis
         cameraVerticalRotation -= inputY;
         cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
         transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
 
-        // Rotate the Player Object around its Y axis
         player.Rotate(Vector3.up * inputX);
 
-        // Head bobbing effect
         float movement = Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"));
         float bobAmountThisFrame = Mathf.Sin(Time.time * bobSpeed) * bobAmount;
 
-        // Apply head bobbing effect
         Vector3 newPos = transform.localPosition;
         newPos.y = defaultPosY + bobAmountThisFrame * movement;
         transform.localPosition = newPos;
