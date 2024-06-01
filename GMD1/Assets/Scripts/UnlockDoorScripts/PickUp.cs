@@ -25,12 +25,12 @@ public class PickUp : MonoBehaviour
     private void OnEnable()
     {
         inputActions.Player.Enable();
-        inputActions.Player.PickUp.started += ctx => OnInteract();
+        inputActions.Player.PickUp.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        inputActions.Player.PickUp.started -= ctx => OnInteract();
+        inputActions.Player.PickUp.performed -= OnInteract;
         inputActions.Player.Disable();
     }
 
@@ -41,7 +41,7 @@ public class PickUp : MonoBehaviour
         greenKeyUI.enabled = false;
     }
 
-    private void OnInteract()
+    private void OnInteract(InputAction.CallbackContext context)
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());

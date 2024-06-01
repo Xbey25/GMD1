@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Transform cameraTransform; // Reference to the camera's transform
 
     private IPlayerState currentState;
     public IdleState IdleState { get; private set; }
@@ -55,15 +54,9 @@ public class PlayerController : MonoBehaviour
         return characterController;
     }
 
-    public void Move(float vertical)
+    public void Move(float horizontal, float vertical)
     {
-        Vector3 forward = cameraTransform.forward;
-
-        // Normalize the direction on the XZ plane
-        forward.y = 0;
-        forward.Normalize();
-
-        Vector3 moveDirection = forward * vertical;
+        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
         moveDirection *= moveSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
@@ -92,7 +85,7 @@ public class IdleState : IPlayerState
     public void UpdateState()
     {
         Vector2 moveInput = playerController.GetMoveInput();
-        if (moveInput.y != 0) // Only transition if there is vertical input
+        if (moveInput != Vector2.zero)
         {
             playerController.TransitionToState(playerController.MovingState);
         }
@@ -111,9 +104,9 @@ public class MovingState : IPlayerState
     public void UpdateState()
     {
         Vector2 moveInput = playerController.GetMoveInput();
-        playerController.Move(moveInput.y); // Only use the vertical input
+        playerController.Move(moveInput.x, moveInput.y);
 
-        if (moveInput.y == 0) // Transition to idle state if there is no vertical input
+        if (moveInput == Vector2.zero)
         {
             playerController.TransitionToState(playerController.IdleState);
         }

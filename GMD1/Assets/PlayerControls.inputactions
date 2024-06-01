@@ -31,41 +31,16 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "MoveKeyboard",
-                    "type": "Button",
-                    "id": "2716b660-0ee1-42ca-b219-d232aec2c266",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "a24fccd0-e512-495d-88ff-d1d29c5aab97",
-<<<<<<< Updated upstream
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "Press",
-=======
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Tap",
->>>>>>> Stashed changes
                     "processors": "",
                     "groups": "ArcadeMachine",
-                    "action": "PickUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "34f057be-5824-4e49-9175-40927702fc1d",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -89,28 +64,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e3173d72-2f25-439b-a130-6b9bf2a2f512",
-                    "path": "<Keyboard>/{Forward}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveKeyboard",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d7f24d5-2dfd-410b-9b82-4bdcd3af26b8",
-                    "path": "<Keyboard>/{Back}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveKeyboard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

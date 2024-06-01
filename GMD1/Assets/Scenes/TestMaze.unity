@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641275, b: 0.5748176, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,7 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 528594623}
   mouseSensitivity: 2
-  snapCooldown: 0.5
+  bobAmount: 0.1
+  bobSpeed: 10
 --- !u!114 &597434467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,11 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2974149c6fb01b409a280581634da96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &597434468 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6811605655520914939, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
-  m_PrefabInstance: {fileID: 3308308777453050762}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1254286449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1794239227158475242, guid: 28eabb2a24011d8409e5647ea90d2e55, type: 3}
@@ -678,10 +674,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4415721281834149617, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
-      propertyPath: cameraTransform
-      value: 
-      objectReference: {fileID: 597434468}
     - target: {fileID: 6855562760755972156, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.53

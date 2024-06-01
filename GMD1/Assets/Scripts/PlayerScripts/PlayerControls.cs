@@ -53,41 +53,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MoveKeyboard"",
-                    ""type"": ""Button"",
-                    ""id"": ""2716b660-0ee1-42ca-b219-d232aec2c266"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""a24fccd0-e512-495d-88ff-d1d29c5aab97"",
-<<<<<<< Updated upstream
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press"",
-=======
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Tap"",
->>>>>>> Stashed changes
                     ""processors"": """",
                     ""groups"": ""ArcadeMachine"",
-                    ""action"": ""PickUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""34f057be-5824-4e49-9175-40927702fc1d"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -111,28 +86,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e3173d72-2f25-439b-a130-6b9bf2a2f512"",
-                    ""path"": ""<Keyboard>/{Forward}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveKeyboard"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6d7f24d5-2dfd-410b-9b82-4bdcd3af26b8"",
-                    ""path"": ""<Keyboard>/{Back}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveKeyboard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -250,7 +203,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_MoveKeyboard = m_Player.FindAction("MoveKeyboard", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
@@ -319,7 +271,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_MoveKeyboard;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -327,7 +278,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @MoveKeyboard => m_Wrapper.m_Player_MoveKeyboard;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -346,9 +296,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @MoveKeyboard.started += instance.OnMoveKeyboard;
-            @MoveKeyboard.performed += instance.OnMoveKeyboard;
-            @MoveKeyboard.canceled += instance.OnMoveKeyboard;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -362,9 +309,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @MoveKeyboard.started -= instance.OnMoveKeyboard;
-            @MoveKeyboard.performed -= instance.OnMoveKeyboard;
-            @MoveKeyboard.canceled -= instance.OnMoveKeyboard;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -450,7 +394,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPickUp(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnMoveKeyboard(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
