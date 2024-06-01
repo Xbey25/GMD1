@@ -2,89 +2,119 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class OptionsNav : MonoBehaviour
+public class OptionsMenuNav : MonoBehaviour
 {
-    public Slider brightnessSlider;
     public Button backButton;
+    public Slider brightnessSlider;
+
+    private Selectable[] menuElements;
+    private int selectedIndex = 0;
+
     private PlayerControls controls;
-    private bool adjustingBrightness = false;
-    private const float brightnessChangeSpeed = 0.1f;
+    private const float deadZoneThreshold = 0.8f; // Higher threshold for the dead zone
+    private const float snapCooldownDuration = 0.2f; // Duration of the snap cooldown in seconds
+    private float lastSnapTime = 0f; // Time when the last snap occurred
 
     private void Awake()
     {
         controls = new PlayerControls();
+        // Initialize the array with the back button and the brightness slider
+        menuElements = new Selectable[] { backButton, brightnessSlider };
     }
 
     private void OnEnable()
     {
         controls.Menu.Enable();
         controls.Menu.Navigate.performed += OnNavigate;
-        controls.Menu.Slide.performed += OnSlide;
         controls.Menu.Select.performed += OnSelect;
+        controls.Menu.Slide.performed += OnSlide;
     }
 
     private void OnDisable()
     {
         controls.Menu.Navigate.performed -= OnNavigate;
-        controls.Menu.Slide.performed -= OnSlide;
         controls.Menu.Select.performed -= OnSelect;
+        controls.Menu.Slide.performed -= OnSlide;
         controls.Menu.Disable();
     }
 
     private void OnNavigate(InputAction.CallbackContext context)
     {
         Vector2 navigation = context.ReadValue<Vector2>();
+        float currentTime = Time.time; // Get the current time
 
-        if (!adjustingBrightness)
+        if (navigation.magnitude > deadZoneThreshold && currentTime - lastSnapTime >= snapCooldownDuration)
         {
-            if (navigation.y != 0)
+            if (navigation.y > 0)
             {
-                // Toggle between adjusting brightness and selecting back button
-                adjustingBrightness = !adjustingBrightness;
-                UpdateSliderSelection(adjustingBrightness);
+                MoveUp();
             }
-        }
-        else
-        {
-            // If adjusting brightness, handle brightness change
-            float slideAmount = navigation.y * brightnessChangeSpeed;
-            brightnessSlider.value = Mathf.Clamp(brightnessSlider.value + slideAmount, brightnessSlider.minValue, brightnessSlider.maxValue);
+            else if (navigation.y < 0)
+            {
+                MoveDown();
+            }
+            lastSnapTime = currentTime; // Update the last snap time
         }
     }
 
-    private void OnSelect(InputAction.CallbackContext context)
+ private void OnSelect(InputAction.CallbackContext context)
+{
+    float inputValue = context.ReadValue<float>();
+    
+    // Check if input value exceeds deadzone threshold
+    if (Mathf.Abs(inputValue) > deadZoneThreshold)
     {
-        if (!adjustingBrightness)
+        // If input value is non-zero, make selection
+        if (Time.time - lastSnapTime >= snapCooldownDuration)
         {
-            // Handle selection if not adjusting brightness
-            backButton.onClick.Invoke();
+            if (menuElements[selectedIndex] is Button button)
+            {
+                button.onClick.Invoke();
+            }
+            lastSnapTime = Time.time; // Update the last snap time
         }
     }
+}
 
-    private void OnSlide(InputAction.CallbackContext context)
+
+
+   private void OnSlide(InputAction.CallbackContext context)
+{
+    if (menuElements[selectedIndex] is Slider slider)
     {
-        // Handle brightness adjustment using the Slide input action
-        if (adjustingBrightness)
-        {
-            // Read the value of individual keys ("a" and "d") from the context
-            float slideAmount = 0f;
-            if (context.control.name == "a")
-            {
-                slideAmount = -1f; // Decrease brightness
-            }
-            else if (context.control.name == "d")
-            {
-                slideAmount = 1f; // Increase brightness
-            }
+        Vector2 delta = context.ReadValue<Vector2>();
+        float sensitivity = 0.5f; // Adjust the sensitivity as needed
+        slider.value += delta.x * sensitivity;
+    }
+}
 
-            // Adjust brightness slider value based on the slide amount
-            brightnessSlider.value = Mathf.Clamp(brightnessSlider.value + slideAmount * brightnessChangeSpeed, brightnessSlider.minValue, brightnessSlider.maxValue);
-        }
+
+    private void MoveUp()
+    {
+        selectedIndex = (selectedIndex - 1 + menuElements.Length) % menuElements.Length;
+        UpdateSelection();
     }
 
-    private void UpdateSliderSelection(bool isSelected)
+    private void MoveDown()
     {
-        brightnessSlider.interactable = isSelected;
-        backButton.interactable = !isSelected;
+        selectedIndex = (selectedIndex + 1) % menuElements.Length;
+        UpdateSelection();
+    }
+
+    private void UpdateSelection()
+    {
+        for (int i = 0; i < menuElements.Length; i++)
+        {
+            if (menuElements[i] is Button button)
+            {
+                button.interactable = (i == selectedIndex);
+            }
+            else if (menuElements[i] is Slider slider)
+            {
+                slider.interactable = (i == selectedIndex);
+            }
+        }
+
+        menuElements[selectedIndex].Select();
     }
 }
