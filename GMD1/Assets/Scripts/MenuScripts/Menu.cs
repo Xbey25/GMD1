@@ -6,7 +6,7 @@ public class Menu : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject OptionsMenu;
-        public MenuNav menuNav;
+    public MenuNav menuNav;
 
     public void OnPlayButton ()
     {
