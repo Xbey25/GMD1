@@ -93,12 +93,12 @@
                 },
                 {
                     "name": "Slide",
-                    "type": "Button",
-                    "id": "232ba10d-8bca-4aa6-a997-9bfe8c3a81a7",
-                    "expectedControlType": "Button",
+                    "type": "Value",
+                    "id": "cbc58f16-db8d-49e4-bc01-c0a7e4eb30f0",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -191,9 +191,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "eb8a06df-1d50-4358-bf3e-23e69135c034",
-                    "path": "1DAxis",
+                    "name": "2D Vector",
+                    "id": "924a942c-d9bf-4b46-9282-40176ed44048",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -202,8 +202,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "de4a529f-25e3-47e5-9b12-063358939452",
+                    "name": "left",
+                    "id": "a4d24027-3a5d-45db-9e61-a513fd1764eb",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -213,42 +213,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "d7ed3b66-a361-4ec9-88ea-e05f95329dee",
+                    "name": "right",
+                    "id": "1b982d48-e091-4640-822a-fd9dbf29f12b",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Slide",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "a435ed62-f3e3-40c8-8043-64f21e35d90f",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Slide",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "aa393ff3-61b2-4e0a-b4b2-d1aadb064421",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Slide",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "072e64a0-9794-4cb0-bb1f-7dde3546f732",
-                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

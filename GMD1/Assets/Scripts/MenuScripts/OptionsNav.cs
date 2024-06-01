@@ -7,10 +7,8 @@ public class OptionsNav : MonoBehaviour
     public Slider brightnessSlider;
     public Button backButton;
     private PlayerControls controls;
-    private const float deadZoneThreshold = 0.5f;
-    private const float snapCooldownDuration = 0.2f;
-    private float lastSnapTime = 0f;
     private bool adjustingBrightness = false;
+    private const float brightnessChangeSpeed = 0.1f;
 
     private void Awake()
     {
@@ -36,35 +34,20 @@ public class OptionsNav : MonoBehaviour
     private void OnNavigate(InputAction.CallbackContext context)
     {
         Vector2 navigation = context.ReadValue<Vector2>();
-        float currentTime = Time.time;
 
-        if (navigation.magnitude > deadZoneThreshold && currentTime - lastSnapTime >= snapCooldownDuration)
+        if (!adjustingBrightness)
         {
-            if (!adjustingBrightness)
+            if (navigation.y != 0)
             {
-                if (navigation.y != 0)
-                {
-                    adjustingBrightness = true;
-                    UpdateSliderSelection(true);
-                }
+                // Toggle between adjusting brightness and selecting back button
+                adjustingBrightness = !adjustingBrightness;
+                UpdateSliderSelection(adjustingBrightness);
             }
-            else
-            {
-                if (navigation.x != 0)
-                {
-                    adjustingBrightness = false;
-                    UpdateSliderSelection(false);
-                }
-            }
-            lastSnapTime = currentTime;
         }
-    }
-
-    private void OnSlide(InputAction.CallbackContext context)
-    {
-        if (adjustingBrightness)
+        else
         {
-            float slideAmount = context.ReadValue<Vector2>().x;
+            // If adjusting brightness, handle brightness change
+            float slideAmount = navigation.y * brightnessChangeSpeed;
             brightnessSlider.value = Mathf.Clamp(brightnessSlider.value + slideAmount, brightnessSlider.minValue, brightnessSlider.maxValue);
         }
     }
@@ -73,7 +56,29 @@ public class OptionsNav : MonoBehaviour
     {
         if (!adjustingBrightness)
         {
+            // Handle selection if not adjusting brightness
             backButton.onClick.Invoke();
+        }
+    }
+
+    private void OnSlide(InputAction.CallbackContext context)
+    {
+        // Handle brightness adjustment using the Slide input action
+        if (adjustingBrightness)
+        {
+            // Read the value of individual keys ("a" and "d") from the context
+            float slideAmount = 0f;
+            if (context.control.name == "a")
+            {
+                slideAmount = -1f; // Decrease brightness
+            }
+            else if (context.control.name == "d")
+            {
+                slideAmount = 1f; // Increase brightness
+            }
+
+            // Adjust brightness slider value based on the slide amount
+            brightnessSlider.value = Mathf.Clamp(brightnessSlider.value + slideAmount * brightnessChangeSpeed, brightnessSlider.minValue, brightnessSlider.maxValue);
         }
     }
 
