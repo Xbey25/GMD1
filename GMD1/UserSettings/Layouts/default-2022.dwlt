@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1060.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 98
+  controlID: 49
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 43
+  controlID: 50
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 44
+  controlID: 51
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -315,6 +315,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: 5216713429292794361, guid: a97bd4b56657be444ac51104483b3978, type: 2}
+    - {fileID: 1107733419795807842, guid: 642546f7297265349a6a5f13f64f625f, type: 2}
     m_ValueSerializationHelper:
     - e00: 1
       e01: 0
@@ -332,10 +333,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: a97bd4b56657be444ac51104483b3978, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 642546f7297265349a6a5f13f64f625f, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 5216713429292794361, guid: a97bd4b56657be444ac51104483b3978, type: 2}
+  - m_Target: {fileID: 1107733419795807842, guid: 642546f7297265349a6a5f13f64f625f, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -384,7 +401,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25028
+  m_LastSelectedObjectID: 49998
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -405,10 +422,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 20
-    y: 729.5
-    width: 1195.5
-    height: 254.5
+    x: 0
+    y: 777.60004
+    width: 1448.6
+    height: 285.80005
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -456,9 +473,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c4610000
-      m_LastClickedID: 25028
-      m_ExpandedIDs: 0cf9fffff6faffffe6610000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: b4dfffffa8e3ffffd6eaffff4aedffffb6faffffb2690000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -838,9 +855,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -13.63203, y: -1.6734552, z: 23.810318}
+    m_Target: {x: 0.49374866, y: -4.9005303, z: 16.369522}
     speed: 2
-    m_Value: {x: -13.63203, y: -1.6734552, z: 23.810318}
+    m_Value: {x: -29.119171, y: 5.544023, z: 41.288425}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -886,13 +903,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.11384344, y: 0.094930716, z: -0.010924413, w: -0.988954}
+    m_Target: {x: 0.14047128, y: -0.45573357, z: 0.07312872, w: 0.8760989}
     speed: 2
-    m_Value: {x: -0.11383652, y: 0.09492494, z: -0.010923749, w: -0.98889387}
+    m_Value: {x: -0.14793333, y: -0.84754366, z: 0.4050191, w: -0.309427}
   m_Size:
     m_Target: 10
     speed: 2
-    m_Value: 10
+    m_Value: 1.4170744
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1060,7 +1077,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/AurynSky/Dungeon Pack/Prefabs/Traps
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1068,16 +1085,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/AurynSky/Dungeon Pack/Prefabs/Traps
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\unity\Proj\GMD1\GMD1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 68610000
-    m_LastClickedID: 24936
-    m_ExpandedIDs: 0000000066610000686100006a61000000ca9a3b
+    scrollPos: {x: 0, y: 82.19995}
+    m_SelectedIDs: 5c9c0000
+    m_LastClickedID: 40028
+    m_ExpandedIDs: 00000000d8620000da620000dc620000fc620000fe62000034630000386300007c810000349c0000389c0000489c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1105,7 +1122,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000066610000686100006a610000
+    m_ExpandedIDs: 00000000d8620000da620000dc620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1132,7 +1149,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300008460000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
