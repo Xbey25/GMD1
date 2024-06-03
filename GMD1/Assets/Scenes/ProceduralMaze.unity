@@ -1991,7 +1991,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3fc9717679d37e94fa592eafff12d93a, type: 2}
+  - {fileID: 2100000, guid: bb946be3b46c7f14fa9e47bfcb242cf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4373,7 +4373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82598210c6b37514da6269070ab21588, type: 2}
+  - {fileID: 2100000, guid: 991cfc75930c81840a58288f0fb4bfe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9610,7 +9610,7 @@ PrefabInstance:
     - target: {fileID: 739740889385736670, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3fc9717679d37e94fa592eafff12d93a, type: 2}
+      objectReference: {fileID: 2100000, guid: bb946be3b46c7f14fa9e47bfcb242cf0, type: 2}
     - target: {fileID: 775305308170507745, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_Name
       value: DoorComplete
@@ -9618,7 +9618,7 @@ PrefabInstance:
     - target: {fileID: 1110523279479403323, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e4fe150376270e643abad795f651ade7, type: 2}
+      objectReference: {fileID: 2100000, guid: 12394b8fc6d570a4cbd51b496d95cb17, type: 2}
     - target: {fileID: 1447887961620401129, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 153.4
@@ -9662,11 +9662,11 @@ PrefabInstance:
     - target: {fileID: 2955285164484574915, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e4fe150376270e643abad795f651ade7, type: 2}
+      objectReference: {fileID: 2100000, guid: 4a9154289a3469e49a2f32b5e542270d, type: 2}
     - target: {fileID: 4534157886736471076, guid: f93cbe5cd6f0627469f5e2c2d39bbda6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e4fe150376270e643abad795f651ade7, type: 2}
+      objectReference: {fileID: 2100000, guid: 3cbaec6bc3acf604fbeb31ddb38bf2c5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
