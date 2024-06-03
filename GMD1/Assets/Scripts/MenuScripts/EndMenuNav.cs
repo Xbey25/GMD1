@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MenuNav : MonoBehaviour
+public class EndMenuNav : MonoBehaviour
 {
     public Button[] menuButtons;
     private int selectedIndex = 0;
@@ -79,3 +81,4 @@ public class MenuNav : MonoBehaviour
         }
     }
 }
+
