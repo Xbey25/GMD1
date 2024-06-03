@@ -9,12 +9,6 @@ public class Jumpscare : MonoBehaviour
     public float displayDuration = 1.5f; // Duration to display the jumpscare
 
 
-    private void Start()
-    {
-        jumpscareImage.enabled = false;
-        jumpscareSound.enabled = false;
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
