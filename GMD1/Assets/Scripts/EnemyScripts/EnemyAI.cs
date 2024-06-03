@@ -24,7 +24,14 @@ public class EnemyAI : MonoBehaviour
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
+        Debug.Log("Starting walking. Initial destination: " + currentDest.position);
+
+        // Set initial destination and speed
+        ai.destination = currentDest.position;
+        ai.speed = walkSpeed;
+        ai.isStopped = false;
     }
+
     void Update()
     {
         Vector3 direction = (player.position - transform.position).normalized;
@@ -38,8 +45,10 @@ public class EnemyAI : MonoBehaviour
                 StopCoroutine("chaseRoutine");
                 StartCoroutine("chaseRoutine");
                 chasing = true;
+                Debug.Log("Player detected. Starting chase.");
             }
         }
+
         if (chasing == true)
         {
             dest = player.position;
@@ -48,6 +57,7 @@ public class EnemyAI : MonoBehaviour
             aiAnim.ResetTrigger("walk");
             aiAnim.ResetTrigger("idle");
             aiAnim.SetTrigger("sprint");
+            Debug.Log("Chasing player. Setting destination to player position: " + dest);
             float distance = Vector3.Distance(player.position, ai.transform.position);
             if (distance <= catchDistance)
             {
@@ -58,17 +68,26 @@ public class EnemyAI : MonoBehaviour
                 aiAnim.SetTrigger("jumpscare");
                 StartCoroutine(deathRoutine());
                 chasing = false;
+                Debug.Log("Player caught. Triggering jumpscare.");
             }
         }
+
         if (walking == true)
         {
-            dest = currentDest.position;
-            ai.destination = dest;
-            ai.speed = walkSpeed;
-            aiAnim.ResetTrigger("sprint");
-            aiAnim.ResetTrigger("idle");
-            aiAnim.SetTrigger("walk");
-            if (ai.remainingDistance <= ai.stoppingDistance)
+            if (!aiAnim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            {
+                aiAnim.ResetTrigger("sprint");
+                aiAnim.ResetTrigger("idle");
+                aiAnim.SetTrigger("walk");
+                Debug.Log("Set walk animation trigger.");
+            }
+
+            // Check remaining distance to destination
+            float remainingDistance = ai.remainingDistance;
+            float stoppingDistance = ai.stoppingDistance;
+            Debug.Log("Walking to destination: " + dest + ", Remaining distance: " + remainingDistance + ", Stopping distance: " + stoppingDistance);
+
+            if (remainingDistance <= stoppingDistance && !ai.pathPending)
             {
                 aiAnim.ResetTrigger("run");
                 aiAnim.ResetTrigger("sprint");
@@ -77,29 +96,49 @@ public class EnemyAI : MonoBehaviour
                 StopCoroutine("stayIdle");
                 StartCoroutine("stayIdle");
                 walking = false;
+                Debug.Log("Reached destination. Going idle.");
             }
         }
     }
+
     IEnumerator stayIdle()
     {
         idleTime = Random.Range(minIdleTime, maxIdleTime);
+        Debug.Log("Idle for " + idleTime + " seconds.");
         yield return new WaitForSeconds(idleTime);
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
+        Debug.Log("Idle finished. New destination: " + currentDest.position);
+
+        // Set new destination and speed
+        ai.destination = currentDest.position;
+        ai.speed = walkSpeed;
+        ai.isStopped = false;
     }
+
     IEnumerator chaseRoutine()
     {
         chaseTime = Random.Range(minChaseTime, maxChaseTime);
+        Debug.Log("Chase for " + chaseTime + " seconds.");
         yield return new WaitForSeconds(chaseTime);
         walking = true;
         chasing = false;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
+        Debug.Log("Chase finished. New destination: " + currentDest.position);
+
+        // Set new destination and speed
+        ai.destination = currentDest.position;
+        ai.speed = walkSpeed;
+        ai.isStopped = false;
     }
+
     IEnumerator deathRoutine()
     {
+        Debug.Log("Jumpscare started. Waiting for " + jumpscareTime + " seconds.");
         yield return new WaitForSeconds(jumpscareTime);
+        Debug.Log("Loading death scene: " + deathScene);
         SceneManager.LoadScene(deathScene);
     }
 }
