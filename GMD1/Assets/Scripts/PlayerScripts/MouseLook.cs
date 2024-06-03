@@ -4,19 +4,24 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     public Transform player;
-    public float snapCooldown = 0.5f; // Time in seconds between allowed snaps
-    private float lastSnapTime = 0f;
+    public Transform cameraTransform; // Reference to the camera transform for vertical rotation
+    public float rotationSpeed = 90f; // Degrees per second
 
     private PlayerControls inputActions;
-
-    private float[] snapAnglesHorizontal = { -90f, 0f, 90f, 180f }; // Left, Forward, Right, Backward
-    private int currentHorizontalIndex = 1; // Start looking forward
+    private float horizontalRotationInput = 0f;
+    private float verticalRotationInput = 0f;
 
     void Awake()
     {
         inputActions = new PlayerControls();
-        inputActions.Player.LookLeft.started += _ => SnapHorizontal(-1); // Snap left when button is pressed
-        inputActions.Player.LookRight.started += _ => SnapHorizontal(1); // Snap right when button is pressed
+        inputActions.Player.LookLeft.started += _ => horizontalRotationInput = -1f; // Start rotating left
+        inputActions.Player.LookLeft.canceled += _ => horizontalRotationInput = 0f; // Stop rotating
+        inputActions.Player.LookRight.started += _ => horizontalRotationInput = 1f; // Start rotating right
+        inputActions.Player.LookRight.canceled += _ => horizontalRotationInput = 0f; // Stop rotating
+        inputActions.Player.LookUp.started += _ => verticalRotationInput = -1f; // Start rotating up
+        inputActions.Player.LookUp.canceled += _ => verticalRotationInput = 0f; // Stop rotating
+        inputActions.Player.LookDown.started += _ => verticalRotationInput = 1f; // Start rotating down
+        inputActions.Player.LookDown.canceled += _ => verticalRotationInput = 0f; // Stop rotating
     }
 
     void OnEnable()
@@ -37,13 +42,16 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        // Add cooldown logic here if needed
-    }
+        if (horizontalRotationInput != 0f)
+        {
+            float rotationAmount = rotationSpeed * Time.deltaTime * horizontalRotationInput;
+            player.Rotate(Vector3.up, rotationAmount);
+        }
 
-    void SnapHorizontal(int direction)
-    {
-        currentHorizontalIndex = (currentHorizontalIndex + direction + snapAnglesHorizontal.Length) % snapAnglesHorizontal.Length;
-        float targetAngle = snapAnglesHorizontal[currentHorizontalIndex];
-        player.localEulerAngles = new Vector3(player.localEulerAngles.x, targetAngle, player.localEulerAngles.z);
+        if (verticalRotationInput != 0f)
+        {
+            float rotationAmount = rotationSpeed * Time.deltaTime * verticalRotationInput;
+            cameraTransform.Rotate(Vector3.right, rotationAmount);
+        }
     }
 }
