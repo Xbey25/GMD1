@@ -1,33 +1,43 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+// This script has movement, stamina and health mechanics, they are implemented in a state pattern, kinda similar to coroutines
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Transform cameraTransform; // Reference to the camera's transform
+    public float sprintSpeed = 10f;
+    public Transform cameraTransform; 
 
     private IPlayerState currentState;
     public IdleState IdleState { get; private set; }
     public MovingState MovingState { get; private set; }
+    public SprintingState SprintingState { get; private set; }
 
     private CharacterController characterController;
+    private PlayerStats playerStats; 
 
-    // Input actions
+    // Input actions for player movement
     private PlayerControls inputActions;
     private Vector2 moveInput;
+    private bool isSprinting;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        playerStats = GetComponent<PlayerStats>(); 
 
         IdleState = new IdleState(this);
         MovingState = new MovingState(this);
+        SprintingState = new SprintingState(this);
 
         currentState = IdleState;
 
         inputActions = new PlayerControls();
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+        inputActions.Player.Sprint.performed += ctx => isSprinting = true;
+        inputActions.Player.Sprint.canceled += ctx => isSprinting = false;
     }
 
     void OnEnable()
@@ -55,16 +65,15 @@ public class PlayerController : MonoBehaviour
         return characterController;
     }
 
-    public void Move(float vertical)
+    public void Move(float vertical, bool sprinting)
     {
         Vector3 forward = cameraTransform.forward;
 
-        // Normalize the direction on the XZ plane
         forward.y = 0;
         forward.Normalize();
 
         Vector3 moveDirection = forward * vertical;
-        moveDirection *= moveSpeed;
+        moveDirection *= sprinting ? sprintSpeed : moveSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
     }
@@ -72,6 +81,16 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetMoveInput()
     {
         return moveInput;
+    }
+
+    public bool IsSprinting()
+    {
+        return isSprinting;
+    }
+
+    public PlayerStats GetPlayerStats()
+    {
+        return playerStats;
     }
 }
 
@@ -92,9 +111,16 @@ public class IdleState : IPlayerState
     public void UpdateState()
     {
         Vector2 moveInput = playerController.GetMoveInput();
-        if (moveInput.y != 0) // Only transition if there is vertical input
+        if (moveInput.y != 0) 
         {
-            playerController.TransitionToState(playerController.MovingState);
+            if (playerController.IsSprinting() && playerController.GetPlayerStats().currentStamina > 0)
+            {
+                playerController.TransitionToState(playerController.SprintingState);
+            }
+            else
+            {
+                playerController.TransitionToState(playerController.MovingState);
+            }
         }
     }
 }
@@ -111,11 +137,43 @@ public class MovingState : IPlayerState
     public void UpdateState()
     {
         Vector2 moveInput = playerController.GetMoveInput();
-        playerController.Move(moveInput.y); // Only use the vertical input
+        playerController.Move(moveInput.y, false);
 
-        if (moveInput.y == 0) // Transition to idle state if there is no vertical input
+        if (moveInput.y == 0)
         {
             playerController.TransitionToState(playerController.IdleState);
+        }
+        else if (playerController.IsSprinting() && playerController.GetPlayerStats().currentStamina > 0)
+        {
+            playerController.TransitionToState(playerController.SprintingState);
+        }
+    }
+}
+
+public class SprintingState : IPlayerState
+{
+    private PlayerController playerController;
+    private float staminaReductionRate = 10f; // stamina reduces when running
+
+    public SprintingState(PlayerController controller)
+    {
+        playerController = controller;
+    }
+
+    public void UpdateState()
+    {
+        Vector2 moveInput = playerController.GetMoveInput();
+        playerController.Move(moveInput.y, true); 
+
+        playerController.GetPlayerStats().AdjustStamina(-staminaReductionRate * Time.deltaTime);
+
+        if (moveInput.y == 0) // move to idle when no vertical input, idle does nothing though
+        {
+            playerController.TransitionToState(playerController.IdleState);
+        }
+        else if (!playerController.IsSprinting() || playerController.GetPlayerStats().currentStamina <= 0)
+        {
+            playerController.TransitionToState(playerController.MovingState);
         }
     }
 }
