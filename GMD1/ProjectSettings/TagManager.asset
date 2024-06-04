@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Pickable
   - Door
-  - Note
   layers:
   - Default
   - TransparentFX
