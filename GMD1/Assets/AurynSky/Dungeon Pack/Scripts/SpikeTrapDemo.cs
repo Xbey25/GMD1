@@ -29,5 +29,4 @@ public class SpikeTrapDemo : MonoBehaviour
         spikeTrapAnim.SetTrigger("close");
         Debug.Log("Playing close animation.");
     }
-
 }
