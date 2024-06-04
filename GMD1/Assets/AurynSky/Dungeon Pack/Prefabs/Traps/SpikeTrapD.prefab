@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: 4008263434231290}
   - component: {fileID: 33767459938869006}
   - component: {fileID: 23024739037874072}
+  - component: {fileID: 7726598562913618516}
+  - component: {fileID: 7862944076366411246}
   m_Layer: 0
   m_Name: SpearD (1)
   m_TagString: Untagged
@@ -249,6 +251,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7726598562913618516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338808813722488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3858724, y: 2.5514293, z: 1.9812622}
+  m_Center: {x: -0.8128655, y: 0.4557562, z: 0.056622267}
+--- !u!114 &7862944076366411246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338808813722488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be42000f77c94a959f4cd16eb3dda26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spikeTrapAnim: {fileID: 95846521961778924}
+  player: {fileID: 0}
+  wonMenuNav: {fileID: 0}
+  wonScreen: {fileID: 0}
 --- !u!1 &1498791207746926
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,8 +437,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1251278, y: 1.2076354, z: 1.1468697}
-  m_Center: {x: 2.7712069, y: 0.7086537, z: 0.006570816}
+  m_Size: {x: 1.0088482, y: 1.3597965, z: 1.0600891}
+  m_Center: {x: 2.5356283, y: 0.6325731, z: 0.04996109}
 --- !u!1 &1533954398984724
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +965,7 @@ Transform:
   m_GameObject: {fileID: 4903606879481173152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.809, y: 0.185, z: 0.061}
+  m_LocalPosition: {x: 2.526, y: 0.039, z: 0.061}
   m_LocalScale: {x: 1, y: 0.1539, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
