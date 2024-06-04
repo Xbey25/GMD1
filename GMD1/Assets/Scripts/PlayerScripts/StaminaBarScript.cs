@@ -9,12 +9,12 @@ public class StaminaBarScript : MonoBehaviour
     public Slider slider;
     // Start is called before the first frame update
     
-    public void setStamina(int stamina){
+    public void setStamina(float stamina){
 
         slider.value=stamina;
     }
 
-    public void setMaxStamina(int maxStamina){
+    public void setMaxStamina(float maxStamina){
 
         slider.maxValue=maxStamina;
         slider.value=maxStamina;
