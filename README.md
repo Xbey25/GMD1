@@ -37,7 +37,7 @@ To make it more immersive I played a bit with the camera view so that it's zoome
 
 Overall, we are excited for the next lesson and getting some more experience in the programming side of Unity.
 
-For references, see
+
 
 ### Game Design document
 ---
@@ -49,6 +49,8 @@ For references, see
 [x] Roll-a-ball `
 [x] Game design document
 [] Development Blogs
+[x] V1.0B (Basic Functionality)
+[] V1.0A (Playable Labyrinth Version)
 [] V1.0 (Playable Arcade Version)
 
 ## Development Blog 1
@@ -67,6 +69,29 @@ Another important task during these early stages was to create a start menu. The
 
 The image was of course a small part of the menu development, the interesting part of it was how Unity handles it. The menu is a scene like a playable one but in which there is no player but clickable buttons and text. Once you click the start button, it selects the maze scene we created earlier and you start playing with the prefab player.
 
-## Development Blog 2
+## Development Blog 2 V1.0B
+
+This is the second development update of the dead cells project.
+
+The main focus of this development blog 2 is to showcase the technical aspects of the project and their approaches.
+
+One of the main technical aspects of the project is the Enemy. There is not a lot of suspense if there is no enemy to chase you around the maze. Therefore, we created an enemy prefab which is a simple capsule that moves around the maze. The enemy prefab was set up with a script that contains several behaviour traits, idle, chase, and attack. The enemy will start in idle mode and will only chase the player if it sees the player. Once the enemy catches up to the player, it will attack the player and the player will die. Initially we created several scripts for the enemy, but we decided to merge them into one script to make it easier to manage.
+
+Apart from the enemy, great emphasis was placed on the door mechanic. The door is a prefab object that requires a specific key to open. The key is another prefab object that is placed in the maze. The player must collect the key in order to open the door and proceed to the next section of the maze. The door is set up with a script that checks if the player has the key and if the player is in the trigger zone of the door. If both conditions are met, the door will open and the player can proceed to the next level. It contains door opening and closing animations as well as a sound effect to make the experience more immersive. 
+
+For additional UI elements, the menu screen was finished with some settings for brightness to make the gamer more inmersive. 
+
+On a smaller detail scale, there is the UI scripts which are currently not doing a lot, and there is an additional type of door in development which contains a keypad.
+
+In the final stages of this version we added the enemy model as well as some animations by using external assets but creating our own animation controller. 
+
+## Development Blog 2/1 V1.0Bb
+
+On a smaller note, the input system proved a bit tricky to implement as it was not as straightforward as we thought. We had to create a new input system and set up the player movement script to work with it. The new input system allows the game to work on the arcade machine as well as on a regular computer.
 
 
+# External Assets Used:
+
+Dungeon - Low Poly Toon Battle Arena / Tower Defense Pack by AurynSky / available on Unity Asset Store https://assetstore.unity.com/packages/3d/environments/dungeons/dungeon-low-poly-toon-battle-arena-tower-defense-pack-109791
+
+Dungeon Monster - Wolfboss by HatoGames / available on Unity Asset Store https://assetstore.unity.com/packages/3d/characters/creatures/01-monster-wolf-boss-189463
