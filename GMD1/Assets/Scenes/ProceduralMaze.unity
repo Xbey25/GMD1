@@ -8855,7 +8855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1124647350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17095,6 +17095,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 1831797400}
   healthBar: {fileID: 1667214384}
   staminaBar: {fileID: 1831797401}
+  endScreen: {fileID: 1124647352}
 --- !u!114 &2104371666
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,10 +15,19 @@ public class PlayerStats : MonoBehaviour
     public HealthBarScript healthBar;
 
     public StaminaBarScript staminaBar;
-
+    public Canvas endScreen;
 
     void Start()
     {
+        if (endScreen != null)
+        {
+            endScreen.enabled = false;
+
+        }
+        else
+        {
+            Debug.LogError("Canvas is not assigned!");
+        }
         currentHealth = maxHealth;
         currentStamina = maxStamina;
         healthBar.setMaxHealth(maxHealth);

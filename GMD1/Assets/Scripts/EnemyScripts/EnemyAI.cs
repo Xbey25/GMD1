@@ -21,13 +21,14 @@ public class EnemyAI : MonoBehaviour
     public Vector3 rayCastOffset;
     
     public Canvas endScreen;
+    private PlayerControls inputActions;
+
 
     void Start()
     {
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
-        endScreen.enabled = true;
     }
     void Update()
     {
@@ -63,6 +64,8 @@ public class EnemyAI : MonoBehaviour
                 aiAnim.SetTrigger("jumpscare");
                 StartCoroutine(deathRoutine());
                 endScreen.enabled = true;
+                inputActions = new PlayerControls();
+                inputActions.Menu.Enable();
                 chasing = false;
             }
         }
