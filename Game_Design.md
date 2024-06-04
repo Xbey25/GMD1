@@ -14,6 +14,7 @@ Teenagers and young adults driven by mystery, scary moments, and puzzle-solving 
 
 ## Unique Selling Points:
 - Fun and engaging puzzles
+- Dangerous traps and obstacles
 - Creepy and suspenseful environment
 - The creature
 
@@ -32,16 +33,16 @@ Dark, atmospheric, and claustrophobic, with dimly lit corridors, ominous shadows
 
 In "Dead End" players awaken in a state of dizziness, finding themselves in an unfamiliar environment. They are trapped in a dark, empty hallway with no memory of who they are or how they arrived there. The only clue to their predicament is a ripped note lying nearby, bearing the message: "What have I done?"
 
-Driven by a sense of urgency, panic, and fear, the player sets out to explore their surroundings. As they progress through the maze-like corridors, they encounter obstacles, traps, and cryptic messages hinting at a sinister purpose behind their predicament.
+Driven by a sense of urgency, panic, and fear, the player sets out to explore their surroundings. As they progress through the maze-like corridors, they encounter obstacles, traps, and cryptic messages hinting at something sinister lurking in the shadows.
 
 Throughout their journey, the player discovers remnants of an enigmatic experiment gone wrong, revealing pieces of a larger narrative involving secret research, ethical predicaments, and the results of meddling with forces beyond human understanding.
 
 ### Monetization:
-The game will be pay to play and the price is determined by the final product
+The game will be pay to play and the price is determined by the final product.
 
 ### Platform, technology, and scope
 
-The game will be made using the Unity engine with c# as its programming language, it is a PC Game, with the additional platform being an arcade-like machine. The development team consists of 2 people intending to have the game finished by x.
+The game will be made using the Unity engine with c# as its programming language, it is a PC Game, with the additional platform being an arcade-like machine. The development team consists of 2 people intending to have the game in a V1.0 by the 6th of June 2024.
 
 ---
 
@@ -56,7 +57,7 @@ The game will be made using the Unity engine with c# as its programming language
 
 ### Objective and Progression:
 
-The main objective of the game is to escape the maze. The maze itself consists of various levels where the player must find keys and objects that allow for progression between those areas. Additionally, they will have the chance to collect additional rewards and notes, which will provide more details and information as to who they are, what they are doing here, and what is chasing them.
+The main objective of the game is to escape the maze. The maze itself consists of various sections where the player must find keys and objects that allow for progression between those areas. Additionally, they will have the chance to collect additional rewards and notes, which will provide more details and information as to who they are, what they are doing here, and what is chasing them.
 
 As the maze reaches its conclusion, the creature will become more active and escaping will become complex.
 
@@ -65,7 +66,8 @@ As the maze reaches its conclusion, the creature will become more active and esc
 
 1. Inventory: Players can collect and manage keys, objects, and other items essential for progression.
 2. Puzzle Mechanics: Various types of puzzles, mostly involving retrieving an essential item to progress.
-3. Stealth and Evasion: Players must utilize stealth mechanics to evade detection by the pursuing creature, hiding in shadows, and avoiding line of sight.
-4. Narrative Interaction: Interacting with notes, documents, and the environment.
+3. Stealth and Evasion: Players must utilize causion to evade detection by the pursuing creature, hiding in shadows, and avoiding line of sight.
+4. Danger and Traps: The maze is filled with traps and hazards that can hinder the player's progress.
+5. Narrative Interaction: Interacting with notes, documents, and the environment.
 
 
