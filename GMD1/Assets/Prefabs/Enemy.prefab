@@ -1431,6 +1431,7 @@ GameObject:
   - component: {fileID: 8411659707829841456}
   - component: {fileID: 6627702923103832849}
   - component: {fileID: 2577032476813678216}
+  - component: {fileID: 1598225250482839524}
   - component: {fileID: 8995131121586906058}
   - component: {fileID: 7872513562156575499}
   m_Layer: 0
@@ -1617,6 +1618,44 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1598225250482839524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448475454479396442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbccf4500326d2f4583185993806ed2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ai: {fileID: 2577032476813678216}
+  destinations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  aiAnim: {fileID: 0}
+  walkSpeed: 5
+  chaseSpeed: 25
+  minIdleTime: 5
+  maxIdleTime: 6
+  idleTime: 5
+  sightDistance: 10
+  catchDistance: 2
+  chaseTime: 15
+  minChaseTime: 5
+  maxChaseTime: 15
+  jumpscareTime: 5
+  walking: 0
+  chasing: 0
+  player: {fileID: 0}
+  destinationAmount: 4
+  rayCastOffset: {x: 0, y: 0, z: 0}
+  deathScene: 
+  endMenuNav: {fileID: 0}
+  endScreen: {fileID: 0}
 --- !u!114 &8995131121586906058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,6 +1692,8 @@ MonoBehaviour:
   destinationAmount: 4
   rayCastOffset: {x: 0, y: 0, z: 0}
   deathScene: 
+  endMenuNav: {fileID: 0}
+  endScreen: {fileID: 0}
 --- !u!95 &7872513562156575499
 Animator:
   serializedVersion: 5
