@@ -15,10 +15,6 @@ public class MenuNav : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        for (int i = 0; i < menuButtons.Length; i++)
-        {
-            menuButtons[i].interactable = (i == selectedIndex);
-        }
     }
 
     private void OnEnable()

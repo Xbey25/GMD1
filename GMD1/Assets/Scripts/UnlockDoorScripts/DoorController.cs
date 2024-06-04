@@ -7,9 +7,6 @@ public class DoorEnemyActivator : MonoBehaviour
 
     private bool enemyEnabled = false; // Track whether the enemy has been enabled
 
-    private PlayerControls inputActions;
-
-
     void Start()
     {
         if (enemy != null)

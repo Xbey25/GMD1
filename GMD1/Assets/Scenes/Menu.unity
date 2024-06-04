@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7895c8d8959a5e44a80047b54a977d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: {fileID: 896243334}
+  MainMenu: {fileID: 1915423797}
   OptionsMenu: {fileID: 445536759}
   menuNav: {fileID: 918138038}
 --- !u!114 &918138040
@@ -1218,8 +1218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd35120e478e5cf43a66524581f8e48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backButton: {fileID: 991683854}
   brightnessSlider: {fileID: 1803122551}
+  backButton: {fileID: 991683854}
 --- !u!1 &991683852
 GameObject:
   m_ObjectHideFlags: 0
