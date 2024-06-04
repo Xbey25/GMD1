@@ -20,6 +20,10 @@ public class OptionsMenuNav : MonoBehaviour
         controls = new PlayerControls();
         // Initialize the array with the back button and the brightness slider
         menuElements = new Selectable[] { backButton, brightnessSlider };
+        for (int i = 0; i < menuElements.Length; i++)
+        {
+            menuElements[i].interactable = (i == selectedIndex);
+        }
     }
 
     private void OnEnable()

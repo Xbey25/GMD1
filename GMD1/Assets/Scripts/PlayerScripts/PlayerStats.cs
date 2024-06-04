@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int maxStamina = 100;
     public int currentStamina;
 
+  
     public Slider healthSlider;
     public Slider staminaSlider;
 
@@ -15,8 +16,20 @@ public class PlayerStats : MonoBehaviour
 
     public StaminaBarScript staminaBar;
 
+    public EndMenuNav menunav;
+    public Canvas endScreen;
+
     void Start()
     {
+        if (endScreen != null)
+        {
+            endScreen.enabled = false;
+            menunav.StopMovement();
+        }
+        else
+        {
+            Debug.LogError("Canvas is not assigned!");
+        }
         currentHealth = maxHealth;
         currentStamina = maxStamina;
         healthBar.setMaxHealth(maxHealth);
@@ -44,7 +57,8 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
-        // Maybe set death screen or print message
+     
+
         Debug.Log("Player died.");
     }
 }
