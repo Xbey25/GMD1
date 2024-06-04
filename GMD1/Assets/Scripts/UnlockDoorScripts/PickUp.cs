@@ -15,6 +15,8 @@ public class PickUp : MonoBehaviour
     public GameObject greenKey;
     public GameObject yellowKey;
 
+    
+
     private PlayerControls inputActions;
 
     private void Awake()
@@ -54,10 +56,11 @@ public class PickUp : MonoBehaviour
             {
                 PickUpObject(hitObject);
             }
+    
         }
     }
 
-    void PickUpObject(GameObject obj)
+    public void PickUpObject(GameObject obj)
     {
         if (obj == redKey)
         {
@@ -79,5 +82,8 @@ public class PickUp : MonoBehaviour
             yellowKeyUI.enabled = true;
             yellowKey.SetActive(false);
         }
+        
     }
+
+    
 }
