@@ -16,15 +16,21 @@ public class PlayerStats : MonoBehaviour
 
     public StaminaBarScript staminaBar;
 
-    public EndMenuNav menunav;
+    public EndMenuNav endmenunav;
+    public EndMenuNav wonmenunav;
+
     public Canvas endScreen;
+    public Canvas wonScreen;
+
 
     void Start()
     {
-        if (endScreen != null)
+        if (endScreen != null && wonScreen != null)
         {
             endScreen.enabled = false;
-            menunav.StopMovement();
+            endmenunav.StopMovement();
+            wonScreen.enabled = false;
+            wonmenunav.StopMovement();
         }
         else
         {
