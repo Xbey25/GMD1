@@ -45,13 +45,20 @@ Overall, we are excited for the next lesson and getting some more experience in 
 
 ## Milestones
 
+Initially, we did not establish any milestones for the project, but we have decided to set some in order to keep track of the project and to have a clear goal in mind and to give some structure to the project.
+
+These are the milestones that we have set for the project:
+
+
+
 `
 [x] Roll-a-ball `
 [x] Game design document
 [] Development Blogs
-[x] V1.0B (Basic Functionality)
-[] V1.0A (Playable Labyrinth Version)
-[] V1.0 (Playable Arcade Version)
+[x] V1.0C (Basic Functionality)
+[x] V1.0B (Playable Labyrinth Version)
+[] V1.0A (Playable Arcade Version)
+[] V1.0 (Final Version)
 
 ## Development Blog 1
 
@@ -87,7 +94,28 @@ In the final stages of this version we added the enemy model as well as some ani
 
 ## Development Blog 2/1 V1.0Bb
 
-On a smaller note, the input system proved a bit tricky to implement as it was not as straightforward as we thought. We had to create a new input system and set up the player movement script to work with it. The new input system allows the game to work on the arcade machine as well as on a regular computer.
+On a smaller note, the input system proved a bit tricky to implement as it was not as straightforward as we thought. 
+
+The keypad door was a bit tricky to implement therefore we settled on using an external script and adapting it to our needs. The player has to input a code in order to open the door, the code is x. The code is checked by a script that checks if the player has input the correct code. If the player inputs the correct code, the door will trigger an event for the door opening animation and can proceed further, here we thought of notes that could be found in the maze that would give the player the code.
+
+## Development Blog 3 V1.0A
+
+This is the third development update of the dead cells project.
+
+During the development of this version, we struggle a lot with the inputs and the arcade machine. We had to create a new input system and set up the player movement script to work with it. The new input system allows the game to work on the arcade machine as well as on a regular computer.
+
+One of the main concerns was how to set up the menu inputs to work with the arcade machine. We had to adapt the previous menu script to work with the new input system. The new input system allows the player to navigate the menu using the joystick and the buttons on the arcade machine.
+
+Additionally, this created a new challenge for the player movement script. We had to adapt the player movement script to work with the new input system. Initially, the player was thought of as having 2 joysticks, one for movement and one for camera rotation. However, we had to adapt the script to work with only one joystick, as both of the arcade machine joysticks are connected to the same input. The workaround was to use it only for movement, reducing the movement options to forward and backward, and using the x and b buttons for camera rotation. This created a complex movement system with an unintended tweak in difficulty.
+
+We also have started working on additional traps. The idea is for spike traps to be placed around the maze. The spike traps will be triggered by the player stepping on a cube with a trigger. Furthermore.
+
+Since we are working a lot with possible death and victory conditions, we have started working on a game over screen. The game over screen will be triggered when the player dies, the screen for now contains the option to go to the main menu or quit.
+
+During the development of this version, a lot of time was wasted thinking of creative ways to get around the input system, such as an overlay for the keypad that would trigger whenever the player would interact with it and would disable the player controls and have a virtual keyboard for the player to input the code. However, we decided to go with the simpler solution of having the player input the code using the joystick and the buttons on the arcade machine.
+
+
+Finally, we rearranged the maze to have a sense of progression, the maze now contains several color-coded doors and the final door is the keypad door.
 
 
 # External Assets Used:
