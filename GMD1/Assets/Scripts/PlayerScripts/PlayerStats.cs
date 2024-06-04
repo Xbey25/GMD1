@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public int maxStamina = 100;
     public int currentStamina;
 
-    public Camera secondCamera;
+  
     public Slider healthSlider;
     public Slider staminaSlider;
 
@@ -16,7 +16,6 @@ public class PlayerStats : MonoBehaviour
 
     public StaminaBarScript staminaBar;
 
-    public Canvas endScreen;
 
     void Start()
     {
@@ -47,8 +46,7 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
-        endScreen.enabled = true;
-        secondCamera.enabled = true;
+     
 
         Debug.Log("Player died.");
     }

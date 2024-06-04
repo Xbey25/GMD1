@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -17,13 +19,15 @@ public class EnemyAI : MonoBehaviour
     int randNum;
     public int destinationAmount;
     public Vector3 rayCastOffset;
-    public string deathScene;
+    
+    public Canvas endScreen;
 
     void Start()
     {
         walking = true;
         randNum = Random.Range(0, destinations.Count);
         currentDest = destinations[randNum];
+        endScreen.enabled = true;
     }
     void Update()
     {
@@ -51,12 +55,14 @@ public class EnemyAI : MonoBehaviour
             float distance = Vector3.Distance(player.position, ai.transform.position);
             if (distance <= catchDistance)
             {
-                player.gameObject.SetActive(false);
+                player.gameObject.GetComponent<PlayerController>().enabled = false;
+                player.GetComponentInChildren<Camera>().GetComponent<MouseLook>().enabled = false;
                 aiAnim.ResetTrigger("walk");
                 aiAnim.ResetTrigger("idle");
                 aiAnim.ResetTrigger("sprint");
                 aiAnim.SetTrigger("jumpscare");
                 StartCoroutine(deathRoutine());
+                endScreen.enabled = true;
                 chasing = false;
             }
         }
@@ -100,6 +106,6 @@ public class EnemyAI : MonoBehaviour
     IEnumerator deathRoutine()
     {
         yield return new WaitForSeconds(jumpscareTime);
-       SceneManager.LoadScene(0);
+       
     }
 }

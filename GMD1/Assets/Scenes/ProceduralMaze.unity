@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 1390898992}
     - target: {fileID: 6855562760755972156, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 106.69
+      value: 119.89
       objectReference: {fileID: 0}
     - target: {fileID: 6855562760755972156, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
       propertyPath: m_LocalPosition.y
@@ -512,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855562760755972156, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.26
+      value: -93.38
       objectReference: {fileID: 0}
     - target: {fileID: 6855562760755972156, guid: 1678c73f8ecc68c4eab9611d83de2632, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12187,7 +12187,7 @@ MonoBehaviour:
   player: {fileID: 2104371648}
   destinationAmount: 4
   rayCastOffset: {x: 0, y: 0, z: 0}
-  deathScene: 
+  endScreen: {fileID: 1124647352}
 --- !u!95 &1491244980
 Animator:
   serializedVersion: 5
@@ -13665,98 +13665,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654605864}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1654762490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1654762493}
-  - component: {fileID: 1654762492}
-  - component: {fileID: 1654762491}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!81 &1654762491
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654762490}
-  m_Enabled: 1
---- !u!20 &1654762492
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654762490}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1654762493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654762490}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.0006441977, y: -0.9970748, z: -0.07595976, w: -0.00845596}
-  m_LocalPosition: {x: 110.8, y: 1.8, z: -126.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -8.712, y: -180.983, z: 0.149}
 --- !u!114 &1667214383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8362554050035546274, guid: 4652354b26fe00b49b86abe56f00f606, type: 3}
@@ -17183,12 +17091,10 @@ MonoBehaviour:
   currentHealth: 100
   maxStamina: 100
   currentStamina: 100
-  secondCamera: {fileID: 1654762492}
   healthSlider: {fileID: 1667214383}
   staminaSlider: {fileID: 1831797400}
   healthBar: {fileID: 1667214384}
   staminaBar: {fileID: 1831797401}
-  endScreen: {fileID: 1124647352}
 --- !u!114 &2104371666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17872,4 +17778,3 @@ SceneRoots:
   - {fileID: 869306704}
   - {fileID: 1593125545}
   - {fileID: 1124647353}
-  - {fileID: 1654762493}
