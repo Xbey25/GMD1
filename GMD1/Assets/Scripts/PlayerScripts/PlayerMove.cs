@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
         inputActions = new PlayerControls();
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
-        inputActions.Menu.Disable();
     }
 
     void OnEnable()

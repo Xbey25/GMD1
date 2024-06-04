@@ -21,8 +21,7 @@ public class EnemyAI : MonoBehaviour
     public Vector3 rayCastOffset;
     
     public Canvas endScreen;
-    private PlayerControls inputActions;
-
+    public EndMenuNav menunav;
 
     void Start()
     {
@@ -64,8 +63,7 @@ public class EnemyAI : MonoBehaviour
                 aiAnim.SetTrigger("jumpscare");
                 StartCoroutine(deathRoutine());
                 endScreen.enabled = true;
-                inputActions = new PlayerControls();
-                inputActions.Menu.Enable();
+                menunav.ResumeMovement();
                 chasing = false;
             }
         }

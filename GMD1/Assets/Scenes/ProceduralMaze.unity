@@ -12188,6 +12188,7 @@ MonoBehaviour:
   destinationAmount: 4
   rayCastOffset: {x: 0, y: 0, z: 0}
   endScreen: {fileID: 1124647352}
+  menunav: {fileID: 1124647355}
 --- !u!95 &1491244980
 Animator:
   serializedVersion: 5
@@ -17095,6 +17096,7 @@ MonoBehaviour:
   staminaSlider: {fileID: 1831797400}
   healthBar: {fileID: 1667214384}
   staminaBar: {fileID: 1831797401}
+  menunav: {fileID: 1124647355}
   endScreen: {fileID: 1124647352}
 --- !u!114 &2104371666
 MonoBehaviour:

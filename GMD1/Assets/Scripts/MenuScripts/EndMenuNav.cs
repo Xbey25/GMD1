@@ -8,6 +8,7 @@ public class EndMenuNav : MonoBehaviour
 {
     public Button[] menuButtons;
     private int selectedIndex = 0;
+    private bool navigationEnabled = true; // Flag to control navigation and selection
 
     private PlayerControls controls;
     private const float deadZoneThreshold = 0.5f; // Higher threshold for the dead zone
@@ -39,6 +40,8 @@ public class EndMenuNav : MonoBehaviour
 
     private void OnNavigate(InputAction.CallbackContext context)
     {
+        if (!navigationEnabled) return; // Check if navigation is enabled
+
         Vector2 navigation = context.ReadValue<Vector2>();
         float currentTime = Time.time; // Get the current time
 
@@ -58,6 +61,8 @@ public class EndMenuNav : MonoBehaviour
 
     private void OnSelect(InputAction.CallbackContext context)
     {
+        if (!navigationEnabled) return; // Check if selection is enabled
+
         menuButtons[selectedIndex].onClick.Invoke();
     }
 
@@ -80,5 +85,14 @@ public class EndMenuNav : MonoBehaviour
             menuButtons[i].interactable = (i == selectedIndex);
         }
     }
-}
 
+    public void StopMovement()
+    {
+        navigationEnabled = false; // Disable navigation and selection
+    }
+
+    public void ResumeMovement()
+    {
+        navigationEnabled = true; // Enable navigation and selection
+    }
+}
