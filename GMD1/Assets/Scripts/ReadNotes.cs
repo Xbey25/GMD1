@@ -5,16 +5,9 @@ using UnityEngine.InputSystem;
 
 public class ReadNotes : MonoBehaviour
 {
-    public GameObject note1;
-    public GameObject note2;
-    public GameObject note3;
-    public GameObject note4;
+    public List<GameObject> notes;
+    public List<GameObject> noteUIs;
 
-    public GameObject note1UI;
-    public GameObject note2UI;
-    public GameObject note3UI;
-    public GameObject note4UI;
-    
     private PlayerControls inputActions;
     private bool noteUIOpen = false;
 
@@ -65,21 +58,13 @@ public class ReadNotes : MonoBehaviour
 
     private void ToggleNoteState(GameObject obj)
     {
-        if (obj == note1)
+        for (int i = 0; i < notes.Count; i++)
         {
-            ToggleNoteUI(note1UI, note1);
-        }
-        else if (obj == note2)
-        {
-            ToggleNoteUI(note2UI, note2);
-        }
-        else if (obj == note3)
-        {
-            ToggleNoteUI(note3UI, note3);
-        }
-        else if (obj == note4)
-        {
-            ToggleNoteUI(note4UI, note4);
+            if (obj == notes[i])
+            {
+                ToggleNoteUI(noteUIs[i], notes[i]);
+                break;
+            }
         }
     }
 
@@ -96,15 +81,11 @@ public class ReadNotes : MonoBehaviour
 
     private void CloseAllNotes()
     {
-        note1UI.SetActive(false);
-        note2UI.SetActive(false);
-        note3UI.SetActive(false);
-        note4UI.SetActive(false);
-
-        note1.SetActive(true);
-        note2.SetActive(true);
-        note3.SetActive(true);
-        note4.SetActive(true);
+        for (int i = 0; i < noteUIs.Count; i++)
+        {
+            noteUIs[i].SetActive(false);
+            notes[i].SetActive(true);
+        }
 
         noteUIOpen = false;
     }
