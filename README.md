@@ -41,17 +41,85 @@ Overall, we are excited for the next lesson and getting some more experience in 
 
 ### Game Design document
 
-See game-design.md
+# Game Design Document
+
+## Working Title:
+Dead End.
+
+## Concept Statement:
+"Dead End" is a maze game where players navigate through complex, intricate environments filled with traps, puzzles, and a particular creature. The goal is to escape the maze while collecting keys and clues about the mysterious backstory behind its creation. Players must strategize, solve puzzles, and avoid the creature to reach the exit, with each level presenting increasingly challenging obstacles.
+
+## Genre:
+Horror
+
+## Target Audience:
+Teenagers and young adults driven by mystery, scary moments, and puzzle-solving experiences.
+
+## Unique Selling Points:
+- Fun and engaging puzzles
+- Creepy and suspenseful environment
+- The creature
+- Dangerous Traps
+
+---
+
+## High-Level Concept/Design
+
+### Player Experience and Game POV:
+
+The player experience in "Dead End" is of immersive suspense and intense exploration. The game's point of view is from a first-person perspective, placing players directly into the  environment of the maze and allowing them to immerse themselves in the mystery and challenges it has.
+
+### Visual and Audio Style:
+Dark, atmospheric, and claustrophobic, with dimly lit corridors, ominous shadows, and unsettling environmental details. The maze itself is designed to evoke feelings of isolation and confusion in the player as well as eary sound queues, that make the player aware of their movements (and perhaps of another).
+
+### Game World Fiction:
+
+In "Dead End" players awaken in a state of dizziness, finding themselves in an unfamiliar environment. They are trapped in a dark, empty hallway with no memory of who they are or how they arrived there.
+
+Driven by a sense of urgency, panic, and fear, the player sets out to explore their surroundings. As they progress through the maze-like corridors, they encounter obstacles, traps, and cryptic messages hinting at a sinister purpose behind their predicament.
+
+Throughout their journey, the player discovers remnants of an enigmatic experiment gone wrong, revealing pieces of a larger narrative involving prisoners, experiments, and death.
+
+### Monetization:
+The game will be pay to play and the price is determined by the final product
+
+### Platform, technology, and scope
+
+The game will be made using the Unity engine with c# as its programming language, it is a PC Game, with the additional platform being an arcade-like machine. The development team consists of 2 people intending to have the game finished by June 6th 2024.
+
+---
+
+## Product Design
+
+### Core Loops:
+
+1. Exploration: Players navigate through the maze-like corridors, searching for keys, objects, and clues.
+2. Puzzle-Solving: Players encounter various puzzles and challenges that obstruct their progress.
+3. Narrative Discovery: Players uncover notes, journals, and other storytelling elements scattered throughout the maze, gradually piecing together the mystery of their identity and the events leading up to their situation.
+4. Escape and Evasion: As players progress through the maze, they must evade a mysterious and increasingly active entity that stalks them.
+5. Traps: The player must avoid dangerous and deadly obstacles that hinder is progress.
+
+### Objective and Progression:
+
+The main objective of the game is to escape the maze. The maze itself consists of various sections where the player must find keys and objects that allow for progression between those areas. Additionally, they will have the chance to collect additional rewards and notes, which will provide more details and information as to who they are, what they are doing here, and what is chasing them.
+
+
+### Game Systems and Interactivity:
+
+1. Inventory: Players can collect and manage keys, objects, and other items essential for progression.
+2. Puzzle Mechanics: Various types of puzzles, mostly involving retrieving an essential item to progress.
+3. Stealth and Evasion: Players must utilize caution to evade detection by the pursuing creature, hiding in shadows, and avoiding line of sight.
+4. Narrative Interaction: Interacting with notes, documents, and the environment.
+
+
 ---
 
 
 ## Milestones
 
-Initially, we did not establish any milestones for the project, but we have decided to set some in order to keep track of the project and to have a clear goal in mind and to give some structure to the project.
+Initially, we did not establish any milestones for the project, but we have decided to set some to keep track of the project and have a clear goal in mind.
 
 These are the milestones that we have set for the project:
-
-
 
 `
 [x] Roll-a-ball 
@@ -121,7 +189,7 @@ Talking about the UI, we decided to create a tutorial screen that appears once t
 During this period we also focused on fixing some known issues that have been persistent for a while but didn't take priority until now. One of them had to do with the key pickup inventory. We decided to rethink the way keys are updated in the inventory and display. For this, we created new assets and made a script that displays the appropriate UI image on the right corner when the player picks up a key. Using a ray cast, if the object has a tag "pickable", and the key is handled according to the colour, and for the door interaction, once used, it is "removed" from the inventory, and disabled from the view, as well as setting the object inactive.
 Another persisting issue we faced was the postprocessing that would target the brightness slider (changing the exposure volume) and the bloom effect that would evidentiate the pick-up objects.
 
-A new feature that utilises a similar approach to the key pick-up mechanic is the notes scattered around the maze in strategic places that would enrich the lore of the game and add to the gameplay duration since, to go past the door with the keypad and trigger the winning condition, the player has to collect the notes that form the keypad code.
+A new feature that utilises a similar approach to the key pick-up mechanic is the notes scattered around the maze in strategic places that would enrich the lore of the game and add to the gameplay duration since to go past the door with the keypad and trigger the winning condition, the player has to collect the notes that form the keypad code.
 
 During the development of this version, a lot of time was wasted thinking of creative ways to get around the input system, such as an overlay for the keypad that would trigger whenever the player would interact with it and would disable the player controls and have a virtual keyboard for the player to input the code. However, we decided to go with the simpler solution of having the player input the code using the joystick and the buttons on the arcade machine.
 
@@ -185,4 +253,3 @@ Pucci Games. (2023). Assets. [online] Available at: https://www.puccigames.com/i
 DaFont. (2023). Cursive Fonts. [online] Available at: https://www.dafont.com/theme.php?cat=110&page=4 
 
 Pixabay. (2023). Free Images. [online] Available at: https://pixabay.com
-
