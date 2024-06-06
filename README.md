@@ -139,15 +139,19 @@ As a final token, some story notes have been added documenting the story of some
 Good luck maze runner.
 
 Picture menu here
+![image](https://github.com/Xbey25/GMD1/assets/92147004/dd934175-b3a8-47d2-95ed-5825889e79d5)
+
 
 Enemy Picture
+![image](https://github.com/Xbey25/GMD1/assets/92147004/515804ef-d262-4dbd-bdc8-0b2220932cf3)
+
 
 Player POV picture
+![image](https://github.com/Xbey25/GMD1/assets/92147004/aa49cfe8-45af-4d2b-842e-cce70f7034e6)
+
 
 Trap Picture
-
-
-
+![image](https://github.com/Xbey25/GMD1/assets/92147004/794f49b4-e7e1-4089-82f1-2bc5dd616baa)
 
 
 
