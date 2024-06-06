@@ -54,13 +54,14 @@ These are the milestones that we have set for the project:
 
 
 `
-[x] Roll-a-ball `
+[x] Roll-a-ball 
 [x] Game design document
 [x] Development Blogs
 [x] V1.0C (Basic Functionality)
 [x] V1.0B (Playable Labyrinth Version)
 [x] V1.0A (Playable Arcade Version)
 [x] V1.0 (Final Version)
+`
 
 ## Development Blog 1
 
