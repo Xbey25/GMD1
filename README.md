@@ -66,7 +66,7 @@ This is the first development update of the Dead End project.
 
 For starters, the initial stages of the project are complete, they involved creating a solid foundation for the project to be able to receive updates, track tasks and issues, as well as establishing realistic goals.
 
-Firstly, the project was initialized using Unity Cloud Control in order to maintain versioning and rollback in case of any unforeseen issues. However, it was determined that this option would require us to start a Unity organization which involved more work than just using git. Therefore, we settled on using GitHub Desktop to keep track of the project files as well as using it for commits and branches as it is quite user-friendly and very easy to set up on a new machine.
+Firstly, the project was initialized using Unity Cloud Control to maintain versioning and rollback in case of any unforeseen issues. However, it was determined that this option would require us to start a Unity organization which involved more work than just using git. Therefore, we settled on using GitHub Desktop to keep track of the project files as well as using it for commits and branches as it is quite user-friendly and very easy to set up on a new machine.
 
 Once the project was initialized, one of the first tasks was to ideate prefabs that would come in hand very early, one of them being the player. Hence, we created a player prefab by creating movement and camera scripts on which we also used a state machine pattern (movement script) to demonstrate the different kinds of movements the player could make. Furthermore, we also created the structure of the maze which consists of several empty object groups which contain the ground, the ceiling, the inside walls, and the outside walls. 
 
@@ -91,13 +91,13 @@ For additional UI elements, the menu screen was expanded with an options button 
 
 On a smaller detail scale, there are UI scripts, and there is an additional type of door in development which contains a keypad.
 
-In the final stages of this version, we added the enemy model as well as some animations by using external assets but creating our own animation controller. 
+In the final stages of this version, we added the enemy model as well as some animations by using external assets but creating our animation controller. 
 
 ## Development Blog 2/1 V1.0Bb
 
 On a smaller note, the input system proved a bit tricky to implement as it was not as straightforward as we thought. 
 
-The keypad door was a bit tricky to implement therefore we settled on using an external script and adapting it to our needs. The player has to input a code in order to open the door, the code is x. The code is checked by a script that checks if the player has input the correct code. If the player inputs the correct code, the door will trigger an event for the door opening animation and can proceed further, here we thought of notes that could be found in the maze that would give the player the code.
+The keypad door was a bit tricky to implement therefore we settled on using an external script and adapting it to our needs. The player has to input a code to open the door, the code is x. The code is checked by a script that checks if the player has input the correct code. If the player inputs the correct code, the door will trigger an event for the door opening animation and can proceed further, here we thought of notes that could be found in the maze that would give the player the code.
 
 ## Development Blog 3 V1.0A
 
@@ -111,14 +111,14 @@ Additionally, this created a new challenge for the player movement script. We ha
 
 We also have started working on additional traps. The idea is for spike traps to be placed around the maze. The spike traps will be triggered by the player stepping on a cube with a trigger. Furthermore.
 
-Since we are working a lot with possible death and victory conditions, we have started working on a game over screen. The game over screen will be triggered when the player dies, the screen, for now, contains the option to go to the main menu or quit. We made that into a prefab and reused it for the winning game screen, with plans to make them more impactful in the future by adding sound effects and maybe a cut-scene or animation.
+Since we are working a lot with possible death and victory conditions, we have started working on a game over screen. The game over screen will be triggered when the player dies, the screen, for now, contains the option to go to the main menu or quit. We made that into a prefab and reused it for the winning game screen, with plans to make them more impactful in the future by adding sound effects and maybe a cut scene or animation.
 
 Talking about the UI, we decided to create a tutorial screen that appears once the maze scene is loaded, and it showcases the controls of the arcade machine and what input action they are mapped to. Implementing it was fairly simple, the assets were edited, made into sprites and showcased. After the player gets familiar with the controls, simply moving will disable the tutorial screen, functionality that is being handled through a script by checking the player's location.
 
-During this period we also focused on fixing some known issues that have been persistent for a while but didn't take priority until now. One of them had to do with the key pickup inventory. We decided to rethink the way keys are updated in the inventory and display. For this, we created new assets and made a script that displays the appropriate UI image on the right corner when the player picks up a key. Using a raycast, if the object has a tag "pickable", and the key is handled according to the color, and for the door interaction, once used, it is "removed" from the inventory, and disabled from the view, as well as setting the object inactive.
+During this period we also focused on fixing some known issues that have been persistent for a while but didn't take priority until now. One of them had to do with the key pickup inventory. We decided to rethink the way keys are updated in the inventory and display. For this, we created new assets and made a script that displays the appropriate UI image on the right corner when the player picks up a key. Using a ray cast, if the object has a tag "pickable", and the key is handled according to the colour, and for the door interaction, once used, it is "removed" from the inventory, and disabled from the view, as well as setting the object inactive.
 Another persisting issue we faced was the postprocessing that would target the brightness slider (changing the exposure volume) and the bloom effect that would evidentiate the pick-up objects.
 
-A new feature that utilises a similar approach to the key pick-up mechanic is the notes scattered around the maze in strategic places that would enrich the lore of the game and add to the gameplay duration since, in order to go past the door with the keypad and trigger the winning condition, the player has to collect the notes that form the keypad code.
+A new feature that utilises a similar approach to the key pick-up mechanic is the notes scattered around the maze in strategic places that would enrich the lore of the game and add to the gameplay duration since, to go past the door with the keypad and trigger the winning condition, the player has to collect the notes that form the keypad code.
 
 During the development of this version, a lot of time was wasted thinking of creative ways to get around the input system, such as an overlay for the keypad that would trigger whenever the player would interact with it and would disable the player controls and have a virtual keyboard for the player to input the code. However, we decided to go with the simpler solution of having the player input the code using the joystick and the buttons on the arcade machine.
 
@@ -126,11 +126,11 @@ Finally, we rearranged the maze to have a sense of progression, the maze now con
 
 ## Release V1.0
 
-Dead End version 1 is now live at https://xbey25.github.io/GMD1/
+Dead End version 1 is now live at [https://xbey25.github.io/GMD1/](https://play.unity.com/mg/other/webgl-builds-417148)
 
-The final version is playable on both a keyboard and mouse and any simple joystick based gamepad.
+The final version is playable on both a keyboard and mouse and any simple joystick-based gamepad.
 
-As James, you wake up from your classic hay pile nap. However, something feels awfully wrong since no one disturbed you on your sleep.
+As James, you wake up from your classic hay pile nap. However, something feels wrong since no one disturbed you in your sleep.
 
 Now you can traverse through the maze, find keys to open the doors, avoid deadly traps set as a precaution measure, and run away from the beast you hear in the distance.
 
