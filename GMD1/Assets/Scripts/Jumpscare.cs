@@ -9,6 +9,13 @@ public class Jumpscare : MonoBehaviour
     public float displayDuration = 1.5f; // Duration to display the jumpscare
 
 
+    public void Awake()
+    {
+
+        jumpscareImage.enabled = false;
+        jumpscareSound.enabled = false;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,8 +23,7 @@ public class Jumpscare : MonoBehaviour
         {
             Debug.Log("Player entered the trigger area.");
             StartCoroutine(DisplayJumpscare());
-            jumpscareImage.enabled = true;
-            jumpscareSound.enabled = true;
+            
         }
     }
 
@@ -25,6 +31,8 @@ public class Jumpscare : MonoBehaviour
     {
         Debug.Log("Jumpscare started.");
         jumpscareSound.Play();
+        jumpscareImage.enabled = true;
+        jumpscareSound.enabled = true;
 
         yield return new WaitForSeconds(displayDuration);
 
