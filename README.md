@@ -7,6 +7,9 @@ This repository holds the main project related to the game development course at
 
 It will hold both the source code for these projects and a development blog which should be updated weekly.
 
+## Repository Link
+
+https://github.com/Xbey25/GMD1
 
 ## Development Blog
 
