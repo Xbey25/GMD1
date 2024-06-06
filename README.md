@@ -166,3 +166,23 @@ https://youtu.be/a8SsES5Lxmk
 Dungeon - Low Poly Toon Battle Arena / Tower Defense Pack by AurynSky / available on Unity Asset Store https://assetstore.unity.com/packages/3d/environments/dungeons/dungeon-low-poly-toon-battle-arena-tower-defense-pack-109791
 
 Dungeon Monster - Wolfboss by HatoGames / available on Unity Asset Store https://assetstore.unity.com/packages/3d/characters/creatures/01-monster-wolf-boss-189463
+
+YouTube. Create great GAME OVER screen in Unity UI - Unity tutorial. [online video] Available at: https://www.youtube.com/watch?v=K4uOjb5p3Io 
+
+YouTube. CONTROLLER INPUT in Unity! [online video] Available at: https://www.youtube.com/watch?v=p-3S73MaDP8&t=87s 
+
+YouTube. EVERY Post-Processing effect in Unity | What you NEED to know. [online video] Available at: https://www.youtube.com/watch?v=xxM6AUHqTMA&t=213s 
+
+YouTube. How to Make a Flexible Interaction System in 2 Minutes [C#] [Unity3D]. [online video] Available at: https://www.youtube.com/watch?v=K06lVKiY-sY
+
+YouTube. How To Pick Up an Item - Unity. [online video] Available at: https://www.youtube.com/watch?v=zEfahR66Pa8&t=65s 
+
+YouTube. Lost Crypt: Explore Unity's new 2D features. [online video] Available at: https://www.youtube.com/watch?v=vRPW3H4X9PE 
+
+YouTube. First Person Movement Unity 2022. [online video] Available at: https://www.youtube.com/watch?v=yl2Tv72tV7U
+
+Pucci Games. (2023). Assets. [online] Available at: https://www.puccigames.com/index/assets 
+DaFont. (2023). Cursive Fonts. [online] Available at: https://www.dafont.com/theme.php?cat=110&page=4 
+
+Pixabay. (2023). Free Images. [online] Available at: https://pixabay.com
+
