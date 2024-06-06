@@ -54,11 +54,11 @@ These are the milestones that we have set for the project:
 `
 [x] Roll-a-ball `
 [x] Game design document
-[] Development Blogs
+[x] Development Blogs
 [x] V1.0C (Basic Functionality)
 [x] V1.0B (Playable Labyrinth Version)
-[] V1.0A (Playable Arcade Version)
-[] V1.0 (Final Version)
+[x] V1.0A (Playable Arcade Version)
+[x] V1.0 (Final Version)
 
 ## Development Blog 1
 
@@ -123,6 +123,32 @@ A new feature that utilises a similar approach to the key pick-up mechanic is th
 During the development of this version, a lot of time was wasted thinking of creative ways to get around the input system, such as an overlay for the keypad that would trigger whenever the player would interact with it and would disable the player controls and have a virtual keyboard for the player to input the code. However, we decided to go with the simpler solution of having the player input the code using the joystick and the buttons on the arcade machine.
 
 Finally, we rearranged the maze to have a sense of progression, the maze now contains several colour-coded doors and the final door is the keypad door.
+
+## Release V1.0
+
+Dead End version 1 is now live at https://xbey25.github.io/GMD1/
+
+The final version is playable on both a keyboard and mouse and any simple joystick based gamepad.
+
+As James, you wake up from your classic hay pile nap. However, something feels awfully wrong since no one disturbed you on your sleep.
+
+Now you can traverse through the maze, find keys to open the doors, avoid deadly traps set as a precaution measure, and run away from the beast you hear in the distance.
+
+As a final token, some story notes have been added documenting the story of some of the lives lost in this maze. Find them, and understand what went wrong.
+
+Good luck maze runner.
+
+Picture menu here
+
+Enemy Picture
+
+Player POV picture
+
+Trap Picture
+
+
+
+
 
 
 # External Assets Used:
