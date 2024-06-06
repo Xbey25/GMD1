@@ -40,6 +40,8 @@ Overall, we are excited for the next lesson and getting some more experience in 
 
 
 ### Game Design document
+
+See game-design.md
 ---
 
 
