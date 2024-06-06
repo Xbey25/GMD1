@@ -129,7 +129,7 @@ Finally, we rearranged the maze to have a sense of progression, the maze now con
 
 ## Release V1.0
 
-Dead End version 1 is now live at [Dead End](https://play.unity.com/mg/other/webgl-builds-417148)](https://play.unity.com/mg/other/webgl-builds-417148)
+Dead End version 1 is now live at https://play.unity.com/mg/other/webgl-builds-417148
 
 The final version is playable on both a keyboard and mouse and any simple joystick-based gamepad.
 
